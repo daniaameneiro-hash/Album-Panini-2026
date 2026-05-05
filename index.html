@@ -68,7 +68,7 @@ html,body{height:100%;background:var(--dark);color:var(--text);font-family:'DM S
 .flt{background:var(--card2);border:1px solid var(--border);border-radius:8px;color:var(--muted);font-size:11px;padding:7px 10px;cursor:pointer;white-space:nowrap;font-family:'DM Sans',sans-serif;}
 .flt.active{background:var(--green-d);border-color:var(--green);color:#fff;}
 .ro-notice{font-size:10px;color:var(--muted);text-align:center;padding:6px;background:var(--card);border-bottom:1px solid var(--border);display:none;}
-.content{padding:12px 16px 90px;}
+.content{padding:12px 16px 100px;}
 .group-section{margin-bottom:14px;}
 .group-header{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border-radius:8px 8px 0 0;cursor:pointer;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:1px;user-select:none;}
 .g-right{display:flex;align-items:center;gap:8px;font-size:10px;font-family:'DM Sans',sans-serif;font-weight:600;}
@@ -103,7 +103,8 @@ html,body{height:100%;background:var(--dark);color:var(--text);font-family:'DM S
 .fab-have{background:var(--green);color:#fff;}
 .fab-have:active{background:var(--green-d);}
 .fab-rep{background:#7a5500;color:var(--gold);border:1px solid var(--gold);}
-.fab-exit{background:var(--card2);color:var(--muted);border:1px solid var(--border);flex:0 0 auto;padding:13px 14px;font-size:13px;}
+.fab-exit{background:var(--card2);color:var(--muted);border:1px solid var(--border);flex:0 0 auto;padding:13px 12px;font-size:13px;}
+.fab-print{background:#1e3a8a;color:#93c5fd;border:1px solid var(--benny);flex:0 0 auto;padding:13px 12px;font-size:16px;}
 .tip{position:fixed;bottom:82px;left:50%;transform:translateX(-50%);background:#222;color:#fff;font-size:11px;padding:6px 14px;border-radius:20px;opacity:0;pointer-events:none;transition:opacity .3s;z-index:200;white-space:nowrap;}
 .tip.show{opacity:1;}
 .gc-0{background:linear-gradient(90deg,#7f1d1d,#450a0a);}
@@ -119,7 +120,42 @@ html,body{height:100%;background:var(--dark);color:var(--text);font-family:'DM S
 .gc-10{background:linear-gradient(90deg,#1e3a8a,#0d1f5c);}
 .gc-11{background:linear-gradient(90deg,#4c1d95,#2e1065);}
 .gc-sp{background:linear-gradient(90deg,#1a1a2e,#0d0d1a);}
+
+/* ── PRINT ── */
+#print-page{display:none;}
+@media print{
+*{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+body{background:#fff!important;color:#000!important;font-family:Arial,sans-serif;}
+#setup-screen,#loading-screen,.header,.stats-bar,.prog-wrap,.controls,.fab-area,.tip,.ro-notice,.content,.swap-banner{display:none!important;}
+#app-screen{display:block!important;}
+#print-page{display:block!important;padding:20px;}
+.pt-header{display:flex;align-items:baseline;justify-content:space-between;border-bottom:3px solid #00a651;padding-bottom:8px;margin-bottom:16px;}
+.pt-title{font-size:20px;font-weight:900;color:#0a0f0d;}
+.pt-title span{color:#00a651;}
+.pt-meta{font-size:11px;color:#666;}
+.pt-player{font-size:13px;font-weight:700;color:#1e3a8a;margin-bottom:14px;}
+.pt-section{margin-bottom:16px;}
+.pt-section-title{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;padding:4px 8px;margin-bottom:8px;border-radius:4px;}
+.pt-section-title.miss{background:#e8f5e9;color:#1b5e20;border-left:4px solid #00a651;}
+.pt-section-title.rep{background:#fffde7;color:#7a5500;border-left:4px solid #f5c518;}
+.pt-nums{display:flex;flex-wrap:wrap;gap:5px;padding:0 4px;}
+.pt-chip{border-radius:5px;padding:3px 8px;font-size:11px;font-family:monospace;font-weight:600;}
+.pt-chip.miss{border:1px solid #81c784;background:#f1f8e9;color:#2e7d32;}
+.pt-chip.rep{border:1px solid #ffd54f;background:#fffde7;color:#7a5500;}
+.pt-by-team{margin-bottom:10px;}
+.pt-team-name{font-size:11px;font-weight:700;color:#444;text-transform:uppercase;letter-spacing:.3px;margin-bottom:3px;}
+.pt-empty{font-size:11px;color:#aaa;font-style:italic;padding:0 4px;}
+.pt-stats{display:flex;gap:16px;margin-bottom:14px;padding:10px;background:#f5f5f5;border-radius:6px;}
+.pt-stat{text-align:center;}
+.pt-stat-n{font-size:22px;font-weight:900;}
+.pt-stat-n.g{color:#00a651;}
+.pt-stat-n.gold{color:#b8860b;}
+.pt-stat-n.grey{color:#888;}
+.pt-stat-l{font-size:9px;color:#666;text-transform:uppercase;}
+.pt-footer{margin-top:20px;font-size:9px;color:#aaa;text-align:center;border-top:1px solid #eee;padding-top:8px;}
+}
 </style>
+
 </head>
 <body>
 
@@ -179,86 +215,50 @@ html,body{height:100%;background:var(--dark);color:var(--text);font-family:'DM S
     <button class="flt"        id="f-rep"  onclick="setFilter('rep')">Repetidas</button>
   </div>
   <div class="content" id="content"></div>
+
+  <!-- PRINT PAGE (hidden, shown only on print) -->
+
+  <div id="print-page"></div>
+
   <div class="fab-area">
-    <button class="fab fab-have" onclick="massAction('have')">✓ Tengo</button>
-    <button class="fab fab-rep"  onclick="massAction('repeat')">R Repetida</button>
-    <button class="fab fab-exit" onclick="exitApp()">⬅</button>
+    <button class="fab fab-have"  onclick="massAction('have')">✓ Tengo</button>
+    <button class="fab fab-rep"   onclick="massAction('repeat')">R Repetida</button>
+    <button class="fab fab-print" onclick="doPrint()" title="Imprimir listado">🖨️</button>
+    <button class="fab fab-exit"  onclick="exitApp()">⬅</button>
   </div>
 </div>
 
 <div class="tip" id="tip"></div>
 
 <script>
-// ── Firebase ──────────────────────────────────────────────────────────────────
-const firebaseConfig = {
-  apiKey: "AIzaSyAQKtbnlTNY_zEq0EoJFAg8R_IDIfr4cKE",
-  authDomain: "album-panini-2026-f559d.firebaseapp.com",
-  databaseURL: "https://album-panini-2026-f559d-default-rtdb.firebaseio.com",
-  projectId: "album-panini-2026-f559d",
-  storageBucket: "album-panini-2026-f559d.firebasestorage.app",
-  messagingSenderId: "84990453672",
-  appId: "1:84990453672:web:d001c31783a16f676ddf9d"
-};
+const firebaseConfig={apiKey:"AIzaSyAQKtbnlTNY_zEq0EoJFAg8R_IDIfr4cKE",authDomain:"album-panini-2026-f559d.firebaseapp.com",databaseURL:"https://album-panini-2026-f559d-default-rtdb.firebaseio.com",projectId:"album-panini-2026-f559d",storageBucket:"album-panini-2026-f559d.firebasestorage.app",messagingSenderId:"84990453672",appId:"1:84990453672:web:d001c31783a16f676ddf9d"};
 firebase.initializeApp(firebaseConfig);
-const db = firebase.database();
+const db=firebase.database();
+const GROUPS=[["GRUPO A",["México","Ecuador","Uzbekistán","Eslovaquia"]],["GRUPO B",["Argentina","Chile","Australia","Albania"]],["GRUPO C",["España","Marruecos","Bélgica","Turquía"]],["GRUPO D",["Portugal","Francia","Ghana","Venezuela"]],["GRUPO E",["Brasil","Alemania","Egipto","Costa Rica"]],["GRUPO F",["Inglaterra","Colombia","Eslovenia","Senegal"]],["GRUPO G",["Países Bajos","Estados Unidos","Irán","Panamá"]],["GRUPO H",["Italia","Uruguay","Irak","Congo"]],["GRUPO I",["Suiza","Perú","Nueva Zelanda","Arabia Saudí"]],["GRUPO J",["Japón","Camerún","Guinea","Togo"]],["GRUPO K",["Dinamarca","Polonia","Catar","Costa de Marfil"]],["GRUPO L",["Canadá","Corea del Sur","Honduras","Trinidad y Tobago"]]];
+const TLABELS=["Escudo","Foto",...Array.from({length:18},(_,i)=>`J${i+1}`)];
+const TOTAL=980;
+let stickers=[],n=1;
+for(let i=0;i<9;i++)stickers.push({num:n++,label:`FWC-${i+1}`,team:'Introducción',group:'INTRODUCCIÓN'});
+for(const[g,teams]of GROUPS)for(const team of teams)for(let i=0;i<20;i++)stickers.push({num:n++,label:TLABELS[i],team,group:g});
+for(let i=0;i<12;i++)stickers.push({num:n++,label:`CC-${i+1}`,team:'Coca-Cola',group:'COCA-COLA'});
+for(let i=0;i<11;i++)stickers.push({num:n++,label:`HIS-${i+1}`,team:'History',group:'HISTORY'});
+let currentPlayer='benny',viewPlayer='benny',currentFilter='all',roomCode='',selectedPlayer=null;
+let remoteState={benny:{},leon:{}},tipTimer,dbRef;
 
-// ── Sticker data ──────────────────────────────────────────────────────────────
-const GROUPS = [
-  ["GRUPO A",["México","Ecuador","Uzbekistán","Eslovaquia"]],
-  ["GRUPO B",["Argentina","Chile","Australia","Albania"]],
-  ["GRUPO C",["España","Marruecos","Bélgica","Turquía"]],
-  ["GRUPO D",["Portugal","Francia","Ghana","Venezuela"]],
-  ["GRUPO E",["Brasil","Alemania","Egipto","Costa Rica"]],
-  ["GRUPO F",["Inglaterra","Colombia","Eslovenia","Senegal"]],
-  ["GRUPO G",["Países Bajos","Estados Unidos","Irán","Panamá"]],
-  ["GRUPO H",["Italia","Uruguay","Irak","Congo"]],
-  ["GRUPO I",["Suiza","Perú","Nueva Zelanda","Arabia Saudí"]],
-  ["GRUPO J",["Japón","Camerún","Guinea","Togo"]],
-  ["GRUPO K",["Dinamarca","Polonia","Catar","Costa de Marfil"]],
-  ["GRUPO L",["Canadá","Corea del Sur","Honduras","Trinidad y Tobago"]],
-];
-const TLABELS = ["Escudo","Foto",...Array.from({length:18},(_,i)=>`J${i+1}`)];
-const TOTAL = 980;
-let stickers=[], n=1;
-for(let i=0;i<9;i++) stickers.push({num:n++,label:`FWC-${i+1}`,team:'Introducción',group:'INTRODUCCIÓN'});
-for(const [g,teams] of GROUPS) for(const team of teams) for(let i=0;i<20;i++) stickers.push({num:n++,label:TLABELS[i],team,group:g});
-for(let i=0;i<12;i++) stickers.push({num:n++,label:`CC-${i+1}`,team:'Coca-Cola',group:'COCA-COLA'});
-for(let i=0;i<11;i++) stickers.push({num:n++,label:`HIS-${i+1}`,team:'History',group:'HISTORY'});
-
-// ── App state ─────────────────────────────────────────────────────────────────
-let currentPlayer='benny', viewPlayer='benny', currentFilter='all';
-let roomCode='', selectedPlayer=null;
-let remoteState={benny:{},leon:{}};
-let tipTimer, dbRef;
-
-// ── Setup ─────────────────────────────────────────────────────────────────────
-function selectPlayer(p){
-  selectedPlayer=p;
-  document.getElementById('btn-benny').classList.toggle('sel',p==='benny');
-  document.getElementById('btn-leon').classList.toggle('sel',p==='leon');
-  checkReady();
-}
-function checkReady(){
-  const code=document.getElementById('room-input').value.trim();
-  document.getElementById('enter-btn').disabled=!(selectedPlayer&&code.length>=3);
-}
-function generateCode(){
-  const w=['schifter','mundial','panini','golazo','fifa'];
-  document.getElementById('room-input').value=w[Math.floor(Math.random()*w.length)]+Math.floor(Math.random()*9000+1000);
-  checkReady();
-}
+function selectPlayer(p){selectedPlayer=p;document.getElementById('btn-benny').classList.toggle('sel',p==='benny');document.getElementById('btn-leon').classList.toggle('sel',p==='leon');checkReady();}
+function checkReady(){const code=document.getElementById('room-input').value.trim();document.getElementById('enter-btn').disabled=!(selectedPlayer&&code.length>=3);}
+function generateCode(){const w=['schifter','mundial','panini','golazo','fifa'];document.getElementById('room-input').value=w[Math.floor(Math.random()*w.length)]+Math.floor(Math.random()*9000+1000);checkReady();}
 function enterApp(){
   const code=document.getElementById('room-input').value.trim().toLowerCase().replace(/\s+/g,'');
-  if(!code||!selectedPlayer) return;
-  roomCode=code; currentPlayer=selectedPlayer; viewPlayer=selectedPlayer;
+  if(!code||!selectedPlayer)return;
+  roomCode=code;currentPlayer=selectedPlayer;viewPlayer=selectedPlayer;
   document.getElementById('setup-screen').style.display='none';
   document.getElementById('loading-screen').style.display='flex';
   dbRef=db.ref('rooms/'+roomCode);
   dbRef.on('value',snap=>{
     const data=snap.val()||{};
-    remoteState.benny=data.benny||{};
-    remoteState.leon=data.leon||{};
-    renderAll(); updateTabPcts();
+    remoteState.benny=data.benny||{};remoteState.leon=data.leon||{};
+    renderAll();updateTabPcts();
     if(document.getElementById('loading-screen').style.display!=='none'){
       document.getElementById('loading-screen').style.display='none';
       document.getElementById('app-screen').style.display='block';
@@ -273,100 +273,30 @@ function enterApp(){
     renderAll();
   });
 }
-function exitApp(){
-  if(dbRef) dbRef.off();
-  document.getElementById('app-screen').style.display='none';
-  document.getElementById('setup-screen').style.display='flex';
-}
-
-// ── View ──────────────────────────────────────────────────────────────────────
-function switchView(p){
-  viewPlayer=p;
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  document.getElementById('tab-'+p).classList.add('active');
-  const own=p===currentPlayer;
-  document.getElementById('ro-notice').style.display=own?'none':'block';
-  document.getElementById('ro-name').textContent=p==='benny'?'Benny':'Leon';
-  renderAll();
-}
-
-// ── State ─────────────────────────────────────────────────────────────────────
+function exitApp(){if(dbRef)dbRef.off();document.getElementById('app-screen').style.display='none';document.getElementById('setup-screen').style.display='flex';}
+function switchView(p){viewPlayer=p;document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));document.getElementById('tab-'+p).classList.add('active');const own=p===currentPlayer;document.getElementById('ro-notice').style.display=own?'none':'block';document.getElementById('ro-name').textContent=p==='benny'?'Benny':'Leon';renderAll();}
 function getS(player,num){return remoteState[player][num]||'none';}
-function setS(num,val){
-  remoteState[currentPlayer][num]=val==='none'?null:val;
-  const u={}; u[num]=val==='none'?null:val;
-  dbRef.child(currentPlayer).update(u);
-}
+function setS(num,val){remoteState[currentPlayer][num]=val==='none'?null:val;const u={};u[num]=val==='none'?null:val;dbRef.child(currentPlayer).update(u);}
+function updateStats(){let have=0,rep=0;for(const s of stickers){const v=getS(viewPlayer,s.num);if(v==='have')have++;else if(v==='repeat')rep++;}const miss=TOTAL-have-rep,pct=Math.round((have+rep)/TOTAL*100);document.getElementById('st-have').textContent=have;document.getElementById('st-miss').textContent=miss;document.getElementById('st-rep').textContent=rep;document.getElementById('st-pct').textContent=pct+'%';document.getElementById('prog-fill').style.width=pct+'%';document.getElementById('prog-lbl').textContent=(have+rep)+' / '+TOTAL;}
+function updateTabPcts(){for(const p of['benny','leon']){let d=0;for(const s of stickers)if(getS(p,s.num)!=='none')d++;document.getElementById('pct-'+p).textContent=Math.round(d/TOTAL*100)+'%';}}
+function setFilter(f){currentFilter=f;['all','miss','rep'].forEach(x=>document.getElementById('f-'+x).classList.toggle('active',x===f));renderAll();}
+function isVis(s){const q=document.getElementById('search').value.toLowerCase().trim();if(q&&!s.team.toLowerCase().includes(q)&&!String(s.num).includes(q)&&!s.group.toLowerCase().includes(q))return false;const v=getS(viewPlayer,s.num);if(currentFilter==='miss'&&v!=='none')return false;if(currentFilter==='rep'&&v!=='repeat')return false;return true;}
 
-// ── Stats ─────────────────────────────────────────────────────────────────────
-function updateStats(){
-  let have=0,rep=0;
-  for(const s of stickers){const v=getS(viewPlayer,s.num);if(v==='have')have++;else if(v==='repeat')rep++;}
-  const miss=TOTAL-have-rep, pct=Math.round((have+rep)/TOTAL*100);
-  document.getElementById('st-have').textContent=have;
-  document.getElementById('st-miss').textContent=miss;
-  document.getElementById('st-rep').textContent=rep;
-  document.getElementById('st-pct').textContent=pct+'%';
-  document.getElementById('prog-fill').style.width=pct+'%';
-  document.getElementById('prog-lbl').textContent=(have+rep)+' / '+TOTAL;
-}
-function updateTabPcts(){
-  for(const p of['benny','leon']){
-    let d=0; for(const s of stickers) if(getS(p,s.num)!=='none') d++;
-    document.getElementById('pct-'+p).textContent=Math.round(d/TOTAL*100)+'%';
-  }
-}
-
-// ── Filter ────────────────────────────────────────────────────────────────────
-function setFilter(f){
-  currentFilter=f;
-  ['all','miss','rep'].forEach(x=>document.getElementById('f-'+x).classList.toggle('active',x===f));
-  renderAll();
-}
-function isVis(s){
-  const q=document.getElementById('search').value.toLowerCase().trim();
-  if(q&&!s.team.toLowerCase().includes(q)&&!String(s.num).includes(q)&&!s.group.toLowerCase().includes(q)) return false;
-  const v=getS(viewPlayer,s.num);
-  if(currentFilter==='miss'&&v!=='none') return false;
-  if(currentFilter==='rep'&&v!=='repeat') return false;
-  return true;
-}
-
-// ── Render ────────────────────────────────────────────────────────────────────
 function renderAll(){
   updateStats();
-  const cont=document.getElementById('content');
-  cont.innerHTML='';
+  const cont=document.getElementById('content');cont.innerHTML='';
   const otherP=viewPlayer==='benny'?'leon':'benny';
   const otherName=otherP==='benny'?'Benny':'Leon';
   const otherColor=otherP==='benny'?'#60a5fa':'#fb923c';
-
-  if(viewPlayer===currentPlayer&&currentFilter==='all'){
-    const reps=stickers.filter(s=>getS(currentPlayer,s.num)==='repeat');
-    const useful=reps.filter(s=>getS(otherP,s.num)==='none');
-    if(useful.length>0){
-      const d=document.createElement('div');d.className='swap-banner';
-      d.innerHTML='<div class="swap-title">🔄 Puedes darle a '+otherName+'</div><div class="swap-desc">'+useful.length+' repetida'+(useful.length>1?'s':'')+' que le faltan:</div><div class="swap-chips">'+useful.slice(0,40).map(s=>'<span class="chip">#'+s.num+'</span>').join('')+(useful.length>40?'<span class="chip">+'+(useful.length-40)+'</span>':'')+'</div>';
-      cont.appendChild(d);
-    }
-  }
-
+  if(viewPlayer===currentPlayer&&currentFilter==='all'){const reps=stickers.filter(s=>getS(currentPlayer,s.num)==='repeat');const useful=reps.filter(s=>getS(otherP,s.num)==='none');if(useful.length>0){const d=document.createElement('div');d.className='swap-banner';d.innerHTML='<div class="swap-title">🔄 Puedes darle a '+otherName+'</div><div class="swap-desc">'+useful.length+' repetida'+(useful.length>1?'s':'')+' que le faltan:</div><div class="swap-chips">'+useful.slice(0,40).map(s=>'<span class="chip">#'+s.num+'</span>').join('')+(useful.length>40?'<span class="chip">+'+(useful.length-40)+'</span>':'')+'</div>';cont.appendChild(d);}}
   const grouped={};
-  for(const s of stickers){
-    if(!isVis(s)) continue;
-    if(!grouped[s.group]) grouped[s.group]={};
-    if(!grouped[s.group][s.team]) grouped[s.group][s.team]=[];
-    grouped[s.group][s.team].push(s);
-  }
+  for(const s of stickers){if(!isVis(s))continue;if(!grouped[s.group])grouped[s.group]={};if(!grouped[s.group][s.team])grouped[s.group][s.team]=[];grouped[s.group][s.team].push(s);}
   const ORDER=['INTRODUCCIÓN','GRUPO A','GRUPO B','GRUPO C','GRUPO D','GRUPO E','GRUPO F','GRUPO G','GRUPO H','GRUPO I','GRUPO J','GRUPO K','GRUPO L','COCA-COLA','HISTORY'];
   let gi=0;
   for(const gname of ORDER){
-    if(!grouped[gname]) continue;
-    const isSp=!gname.startsWith('GRUPO');
-    const gcls=isSp?'gc-sp':'gc-'+(gi%12);
-    if(!isSp) gi++;
-    const allG=stickers.filter(s=>s.group===gname);
-    const haveG=allG.filter(s=>getS(viewPlayer,s.num)!=='none').length;
+    if(!grouped[gname])continue;
+    const isSp=!gname.startsWith('GRUPO');const gcls=isSp?'gc-sp':'gc-'+(gi%12);if(!isSp)gi++;
+    const allG=stickers.filter(s=>s.group===gname);const haveG=allG.filter(s=>getS(viewPlayer,s.num)!=='none').length;
     const sec=document.createElement('div');sec.className='group-section';
     sec.innerHTML='<div class="group-header '+gcls+'" onclick="this.closest(\'.group-section\').classList.toggle(\'collapsed\')"><span>'+gname+'</span><span class="g-right"><span class="g-count">'+haveG+'/'+allG.length+'</span><span class="chev">▼</span></span></div><div class="group-body"></div>';
     cont.appendChild(sec);
@@ -380,64 +310,80 @@ function renderAll(){
       for(const s of tList){
         const el=document.createElement('div');el.className='sticker';el.dataset.num=s.num;
         const myV=getS(viewPlayer,s.num),otV=getS(otherP,s.num);
-        if(myV!=='none') el.classList.add(myV);
+        if(myV!=='none')el.classList.add(myV);
         let odot='';
-        if(otV==='have') odot='<span class="odot" style="color:'+otherColor+'">●</span>';
-        else if(otV==='repeat') odot='<span class="odot" style="color:'+otherColor+'">R</span>';
+        if(otV==='have')odot='<span class="odot" style="color:'+otherColor+'">●</span>';
+        else if(otV==='repeat')odot='<span class="odot" style="color:'+otherColor+'">R</span>';
         el.innerHTML='<div class="sn2">'+s.num+'</div><div class="slb2">'+s.label+'</div>'+odot;
-        if(viewPlayer===currentPlayer) el.addEventListener('click',()=>cycleSticker(s.num,el));
+        if(viewPlayer===currentPlayer)el.addEventListener('click',()=>cycleSticker(s.num,el));
         else{el.style.cursor='default';el.style.opacity='.75';}
         grid.appendChild(el);
       }
     }
   }
-  if(!cont.children.length) cont.innerHTML='<div style="text-align:center;color:var(--muted);padding:40px;font-size:13px;">Sin postales en esta vista</div>';
+  if(!cont.children.length)cont.innerHTML='<div style="text-align:center;color:var(--muted);padding:40px;font-size:13px;">Sin postales en esta vista</div>';
 }
 
-// ── Cycle ─────────────────────────────────────────────────────────────────────
-function cycleSticker(num,el){
-  if(viewPlayer!==currentPlayer) return;
-  const cur=getS(currentPlayer,num);
-  const next=cur==='none'?'have':cur==='have'?'repeat':'none';
-  setS(num,next);
-  el.classList.remove('have','repeat');
-  if(next!=='none') el.classList.add(next);
-  updateStats();
-  updateTeamCount(el);
-  showTip(next==='none'?'#'+num+' → Me falta':next==='have'?'#'+num+' → ¡Tengo!':'#'+num+' → Repetida');
-}
-function updateTeamCount(el){
-  const grid=el.closest('.sgrid');if(!grid)return;
-  const row=grid.closest('.team-row');if(!row)return;
-  const all=grid.querySelectorAll('.sticker');
-  const done=[...all].filter(c=>c.classList.contains('have')||c.classList.contains('repeat')).length;
-  const mini=row.querySelector('.tmini');if(mini)mini.textContent=done+'/'+all.length;
-}
+function cycleSticker(num,el){if(viewPlayer!==currentPlayer)return;const cur=getS(currentPlayer,num);const next=cur==='none'?'have':cur==='have'?'repeat':'none';setS(num,next);el.classList.remove('have','repeat');if(next!=='none')el.classList.add(next);updateStats();updateTeamCount(el);showTip(next==='none'?'#'+num+' → Me falta':next==='have'?'#'+num+' → ¡Tengo!':'#'+num+' → Repetida');}
+function updateTeamCount(el){const grid=el.closest('.sgrid');if(!grid)return;const row=grid.closest('.team-row');if(!row)return;const all=grid.querySelectorAll('.sticker');const done=[...all].filter(c=>c.classList.contains('have')||c.classList.contains('repeat')).length;const mini=row.querySelector('.tmini');if(mini)mini.textContent=done+'/'+all.length;}
+function massAction(action){if(viewPlayer!==currentPlayer){showTip('Solo puedes editar tu álbum');return;}const els=document.querySelectorAll('.sticker');const upd={};let count=0;for(const el of els){const num=parseInt(el.dataset.num);if(getS(currentPlayer,num)==='none'){remoteState[currentPlayer][num]=action;upd[num]=action;el.classList.remove('have','repeat');el.classList.add(action);updateTeamCount(el);count++;}}if(!count){showTip('No hay postales sin marcar');return;}dbRef.child(currentPlayer).update(upd);updateStats();showTip(count+' postal'+(count>1?'es':'')+' → '+(action==='have'?'Tengo':'Repetida'));}
+function showTip(msg){const el=document.getElementById('tip');el.textContent=msg;el.classList.add('show');clearTimeout(tipTimer);tipTimer=setTimeout(()=>el.classList.remove('show'),1800);}
 
-// ── Mass action ───────────────────────────────────────────────────────────────
-function massAction(action){
-  if(viewPlayer!==currentPlayer){showTip('Solo puedes editar tu álbum');return;}
-  const els=document.querySelectorAll('.sticker');
-  const upd={};let count=0;
-  for(const el of els){
-    const num=parseInt(el.dataset.num);
-    if(getS(currentPlayer,num)==='none'){
-      remoteState[currentPlayer][num]=action;upd[num]=action;
-      el.classList.remove('have','repeat');el.classList.add(action);
-      updateTeamCount(el);count++;
+// ── PRINT ─────────────────────────────────────────────────────────────────────
+function doPrint(){
+  const playerName = viewPlayer==='benny'?'Benny Schifter':'Leon Schifter';
+  const missing = stickers.filter(s=>getS(viewPlayer,s.num)==='none');
+  const repeated = stickers.filter(s=>getS(viewPlayer,s.num)==='repeat');
+  const have = stickers.filter(s=>getS(viewPlayer,s.num)==='have').length;
+  const pct = Math.round((have+repeated.length)/TOTAL*100);
+
+  // Group missing by team
+  const missByTeam={};
+  for(const s of missing){if(!missByTeam[s.team])missByTeam[s.team]=[];missByTeam[s.team].push(s);}
+  const repByTeam={};
+  for(const s of repeated){if(!repByTeam[s.team])repByTeam[s.team]=[];repByTeam[s.team].push(s);}
+
+  let html='';
+  // Header
+  html+='<div class="pt-header"><div class="pt-title">⚽ Álbum <span>Mundial</span> 2026</div><div class="pt-meta">Panini · FIFA World Cup · '+new Date().toLocaleDateString('es')+'</div></div>';
+  html+='<div class="pt-player">👤 '+playerName+'</div>';
+
+  // Stats
+  html+='<div class="pt-stats">';
+  html+='<div class="pt-stat"><div class="pt-stat-n g">'+have+'</div><div class="pt-stat-l">Tengo</div></div>';
+  html+='<div class="pt-stat"><div class="pt-stat-n grey">'+missing.length+'</div><div class="pt-stat-l">Faltan</div></div>';
+  html+='<div class="pt-stat"><div class="pt-stat-n gold">'+repeated.length+'</div><div class="pt-stat-l">Repetidas</div></div>';
+  html+='<div class="pt-stat"><div class="pt-stat-n" style="color:#7c3aed">'+pct+'%</div><div class="pt-stat-l">Completado</div></div>';
+  html+='</div>';
+
+  // Missing section
+  html+='<div class="pt-section"><div class="pt-section-title miss">📋 Me faltan ('+missing.length+')</div>';
+  if(missing.length===0){html+='<div class="pt-empty">¡No falta ninguna! 🎉</div>';}
+  else{
+    for(const[team,list]of Object.entries(missByTeam)){
+      html+='<div class="pt-by-team"><div class="pt-team-name">'+team+'</div><div class="pt-nums">';
+      html+=list.map(s=>'<span class="pt-chip miss">#'+s.num+'</span>').join('');
+      html+='</div></div>';
     }
   }
-  if(!count){showTip('No hay postales sin marcar');return;}
-  dbRef.child(currentPlayer).update(upd);
-  updateStats();
-  showTip(count+' postal'+(count>1?'es':'')+' → '+(action==='have'?'Tengo':'Repetida'));
-}
+  html+='</div>';
 
-// ── Tip ───────────────────────────────────────────────────────────────────────
-function showTip(msg){
-  const el=document.getElementById('tip');
-  el.textContent=msg;el.classList.add('show');
-  clearTimeout(tipTimer);tipTimer=setTimeout(()=>el.classList.remove('show'),1800);
+  // Repeated section
+  html+='<div class="pt-section"><div class="pt-section-title rep">🔄 Repetidas ('+repeated.length+')</div>';
+  if(repeated.length===0){html+='<div class="pt-empty">No hay repetidas aún.</div>';}
+  else{
+    for(const[team,list]of Object.entries(repByTeam)){
+      html+='<div class="pt-by-team"><div class="pt-team-name">'+team+'</div><div class="pt-nums">';
+      html+=list.map(s=>'<span class="pt-chip rep">#'+s.num+'</span>').join('');
+      html+='</div></div>';
+    }
+  }
+  html+='</div>';
+
+  html+='<div class="pt-footer">⚽ Álbum Panini FIFA World Cup 2026™️ · Generado el '+new Date().toLocaleString('es')+'</div>';
+
+  document.getElementById('print-page').innerHTML=html;
+  window.print();
 }
 </script>
 
