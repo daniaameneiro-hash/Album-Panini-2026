@@ -389,8 +389,46 @@ function doPrint(){
 
   html+='<div class="pt-footer">⚽ Álbum Panini FIFA World Cup 2026™️ · Generado el '+new Date().toLocaleString('es')+'</div>';
 
-  document.getElementById('print-page').innerHTML=html;
-  window.print();
+  // Open clean white popup — avoids dark theme bleeding into print
+  const pw = window.open('','_blank','width=820,height=700');
+  const printStyles = `
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{background:#fff;color:#000;font-family:Arial,sans-serif;padding:24px;}
+    .pt-header{display:flex;align-items:baseline;justify-content:space-between;border-bottom:3px solid #00a651;padding-bottom:8px;margin-bottom:16px;}
+    .pt-title{font-size:22px;font-weight:900;color:#0a0f0d;}
+    .pt-title span{color:#00a651;}
+    .pt-meta{font-size:10px;color:#999;text-align:right;}
+    .pt-player{font-size:13px;font-weight:700;color:#1e3a8a;margin-bottom:14px;}
+    .pt-stats{display:flex;gap:0;margin-bottom:16px;border:1px solid #e0e0e0;border-radius:8px;overflow:hidden;}
+    .pt-stat{flex:1;text-align:center;padding:10px 8px;border-right:1px solid #e0e0e0;}
+    .pt-stat:last-child{border-right:none;}
+    .pt-stat-n{font-size:24px;font-weight:900;line-height:1;}
+    .pt-stat-n.g{color:#00a651;}
+    .pt-stat-n.grey{color:#aaa;}
+    .pt-stat-n.gold{color:#b8860b;}
+    .pt-stat-n.purple{color:#7c3aed;}
+    .pt-stat-l{font-size:9px;color:#aaa;text-transform:uppercase;letter-spacing:.4px;margin-top:2px;}
+    .pt-progress-bar{height:7px;background:#eee;border-radius:4px;overflow:hidden;margin-bottom:4px;}
+    .pt-progress-fill{height:100%;background:linear-gradient(90deg,#007a3d,#00a651,#f5c518);border-radius:4px;}
+    .pt-progress-label{font-size:9px;color:#aaa;text-align:right;margin-bottom:16px;}
+    .pt-section{margin-bottom:18px;}
+    .pt-section-title{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;padding:5px 10px;margin-bottom:10px;border-radius:4px;}
+    .pt-section-title.miss{background:#f0faf4;color:#166534;border-left:4px solid #00a651;}
+    .pt-section-title.rep{background:#fffde7;color:#7a5500;border-left:4px solid #f5c518;}
+    .pt-by-team{margin-bottom:10px;}
+    .pt-team-name{font-size:10px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px;}
+    .pt-nums{display:flex;flex-wrap:wrap;gap:4px;}
+    .pt-chip{border-radius:4px;padding:2px 7px;font-size:11px;font-weight:700;font-family:monospace;}
+    .pt-chip.miss{border:1px solid #86efac;background:#f0fdf4;color:#166534;}
+    .pt-chip.rep{border:1px solid #fde047;background:#fefce8;color:#854d0e;}
+    .pt-empty{font-size:11px;color:#ccc;font-style:italic;padding:4px 2px;}
+    .pt-footer{margin-top:24px;font-size:9px;color:#ccc;text-align:center;border-top:1px solid #eee;padding-top:8px;}
+    .print-btn{margin:20px auto;display:block;padding:10px 28px;background:#00a651;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;}
+    @media print{.print-btn{display:none;}}
+  `;
+  pw.document.write('<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Reporte Album Mundial 2026</title><style>' + printStyles + '</style></head><body>' + html + '<button class="print-btn" onclick="window.print()">🖨️ Imprimir / Guardar PDF</button></body></html>');
+
+pw.document.close();
 }
 </script>
 
