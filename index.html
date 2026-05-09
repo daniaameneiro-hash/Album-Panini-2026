@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -81,18 +80,21 @@ html,body{height:100%;background:var(--dark);color:var(--text);font-family:'DM S
 .team-row:last-child{border-bottom:none;}
 .team-name-row{display:flex;align-items:center;justify-content:space-between;padding:7px 12px 3px;font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;}
 .tmini{font-size:10px;font-weight:400;}
-.sgrid{display:grid;grid-template-columns:repeat(10,1fr);gap:3px;padding:4px 8px 8px;}
-.sticker{aspect-ratio:1;border-radius:5px;border:1.5px solid var(--border);background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:all .12s;position:relative;overflow:hidden;-webkit-tap-highlight-color:transparent;}
-.sticker:active{transform:scale(.91);}
-.sn2{font-family:'Bebas Neue',sans-serif;font-size:13px;line-height:1;color:var(--muted);}
-.slb2{font-size:5px;color:#4a6a4a;line-height:1;margin-top:1px;text-align:center;}
+.sgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;padding:4px 8px 8px;}
+.sticker{border-radius:6px;border:1.5px solid var(--border);background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:all .12s;position:relative;overflow:hidden;-webkit-tap-highlight-color:transparent;padding:5px 3px;min-height:52px;}
+.sticker:active{transform:scale(.93);}
+.sn2{font-family:'Bebas Neue',sans-serif;font-size:14px;line-height:1;color:var(--muted);}
+.slb2{font-size:7px;color:#4a6a4a;line-height:1.2;margin-top:2px;text-align:center;word-break:break-word;}
 .sticker.have{background:#0d2e14;border-color:var(--green);}
 .sticker.have .sn2{color:var(--green);}
-.sticker.have::after{content:'✓';position:absolute;top:1px;right:2px;font-size:7px;color:var(--green);font-weight:700;}
+.sticker.have .slb2{color:#4aaa6a;}
+.sticker.have::after{content:'✓';position:absolute;top:2px;right:3px;font-size:8px;color:var(--green);font-weight:700;}
 .sticker.repeat{background:#2e1a0d;border-color:var(--gold);}
 .sticker.repeat .sn2{color:var(--gold);}
-.sticker.repeat::after{content:'R';position:absolute;top:1px;right:2px;font-size:7px;color:var(--gold);font-weight:700;}
-.odot{position:absolute;bottom:1px;left:2px;font-size:6px;line-height:1;}
+.sticker.repeat .slb2{color:#aa8a4a;}
+.sticker.repeat::after{content:'R';position:absolute;top:2px;right:3px;font-size:8px;color:var(--gold);font-weight:700;}
+.odot{position:absolute;bottom:2px;left:3px;font-size:7px;line-height:1;}
+.foil-badge{position:absolute;top:2px;left:3px;font-size:6px;color:var(--gold);line-height:1;}
 .swap-banner{background:linear-gradient(90deg,#1a2e1a,#2a1a00);border:1px solid var(--gold);border-radius:10px;padding:12px 14px;margin-bottom:14px;}
 .swap-title{font-family:'Bebas Neue',sans-serif;font-size:15px;color:var(--gold);margin-bottom:4px;}
 .swap-desc{font-size:11px;color:var(--muted);margin-bottom:8px;}
@@ -120,49 +122,21 @@ html,body{height:100%;background:var(--dark);color:var(--text);font-family:'DM S
 .gc-10{background:linear-gradient(90deg,#1e3a8a,#0d1f5c);}
 .gc-11{background:linear-gradient(90deg,#4c1d95,#2e1065);}
 .gc-sp{background:linear-gradient(90deg,#1a1a2e,#0d0d1a);}
-
-/* ── PRINT ── */
 #print-page{display:none;}
 @media print{
-*{-webkit-print-color-adjust:exact;print-color-adjust:exact;background:#fff!important;color:#000!important;}
-html,body{background:#fff!important;color:#000!important;font-family:Arial,sans-serif;}
-#setup-screen,#loading-screen,.header,.stats-bar,.prog-wrap,.controls,.fab-area,.tip,.ro-notice,.content,.swap-banner{display:none!important;}
-#app-screen{display:block!important;background:#fff!important;}
-#print-page{display:block!important;padding:20px;background:#fff!important;}
-.pt-header{display:flex;align-items:baseline;justify-content:space-between;border-bottom:3px solid #00a651;padding-bottom:8px;margin-bottom:16px;background:#fff!important;}
-.pt-title{font-size:20px;font-weight:900;color:#0a0f0d;}
-.pt-title span{color:#00a651;}
-.pt-meta{font-size:11px;color:#666;}
-.pt-player{font-size:13px;font-weight:700;color:#1e3a8a;margin-bottom:14px;}
-.pt-section{margin-bottom:16px;}
-.pt-section-title{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;padding:4px 8px;margin-bottom:8px;border-radius:4px;}
-.pt-section-title.miss{background:#e8f5e9!important;color:#1b5e20!important;border-left:4px solid #00a651;}
-.pt-section-title.rep{background:#fffde7!important;color:#7a5500!important;border-left:4px solid #f5c518;}
-.pt-nums{display:flex;flex-wrap:wrap;gap:5px;padding:0 4px;}
-.pt-chip{border-radius:5px;padding:3px 8px;font-size:11px;font-family:monospace;font-weight:600;}
-.pt-chip.miss{border:1px solid #81c784;background:#f1f8e9!important;color:#2e7d32!important;}
-.pt-chip.rep{border:1px solid #ffd54f;background:#fffde7!important;color:#7a5500!important;}
-.pt-by-team{margin-bottom:10px;}
-.pt-team-name{font-size:11px;font-weight:700;color:#444;text-transform:uppercase;letter-spacing:.3px;margin-bottom:3px;}
-.pt-empty{font-size:11px;color:#aaa;font-style:italic;padding:0 4px;}
-.pt-stats{display:flex;gap:16px;margin-bottom:14px;padding:10px;background:#f5f5f5!important;border-radius:6px;}
-.pt-stat{text-align:center;}
-.pt-stat-n{font-size:22px;font-weight:900;}
-.pt-stat-n.g{color:#00a651!important;}
-.pt-stat-n.gold{color:#b8860b!important;}
-.pt-stat-n.grey{color:#888;}
-.pt-stat-l{font-size:9px;color:#666;text-transform:uppercase;}
-.pt-footer{margin-top:20px;font-size:9px;color:#aaa;text-align:center;border-top:1px solid #eee;padding-top:8px;}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact;background:#fff!important;color:#000!important;}
+  html,body{background:#fff!important;}
+  #setup-screen,#loading-screen,.header,.stats-bar,.prog-wrap,.controls,.fab-area,.tip,.ro-notice,.content,.swap-banner{display:none!important;}
+  #app-screen{display:block!important;background:#fff!important;}
+  #print-page{display:block!important;padding:20px;background:#fff!important;}
 }
-
-/* Desktop: fab-area visible */
 @media(min-width:600px){
-.fab-area{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:620px;border-radius:16px 16px 0 0;padding:12px 20px 16px;}
-.fab{font-size:13px;padding:11px;}
-.fab-print,.fab-exit{padding:11px 16px;}
+  .fab-area{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:620px;border-radius:16px 16px 0 0;padding:12px 20px 16px;}
+  .fab{font-size:13px;padding:11px;}
+  .fab-print,.fab-exit{padding:11px 16px;}
+  .sgrid{grid-template-columns:repeat(10,1fr);}
 }
 </style>
-
 </head>
 <body>
 
@@ -171,7 +145,7 @@ html,body{background:#fff!important;color:#000!important;font-family:Arial,sans-
   <div class="setup-sub">FIFA World Cup · Panini · USA / México / Canadá</div>
   <div class="setup-card">
     <div class="setup-title">¿Quién eres?</div>
-    <div class="setup-desc">Selecciona tu nombre y escribe el código compartido. Todos los que usen el mismo código ven el progreso en tiempo real.</div>
+    <div class="setup-desc">Selecciona tu nombre y el código compartido. Todos con el mismo código ven el progreso en tiempo real.</div>
     <div class="slabel">Soy…</div>
     <div class="player-btns">
       <button class="p-btn benny" id="btn-benny" onclick="selectPlayer('benny')">🔵 Benny</button>
@@ -216,39 +190,1043 @@ html,body{background:#fff!important;color:#000!important;font-family:Arial,sans-
     <div class="prog-lbl" id="prog-lbl">0 / 980</div>
   </div>
   <div class="controls">
-    <div class="sw"><span class="si">🔍</span><input type="text" id="search" placeholder="Buscar equipo o N.º…" oninput="renderAll()"></div>
+    <div class="sw"><span class="si">🔍</span><input type="text" id="search" placeholder="Buscar equipo, jugador o código…" oninput="renderAll()"></div>
     <button class="flt active" id="f-all"  onclick="setFilter('all')">Todos</button>
     <button class="flt"        id="f-miss" onclick="setFilter('miss')">Faltan</button>
     <button class="flt"        id="f-rep"  onclick="setFilter('rep')">Repetidas</button>
   </div>
   <div class="content" id="content"></div>
-
-  <!-- PRINT PAGE (hidden, shown only on print) -->
-
   <div id="print-page"></div>
-
   <div class="fab-area">
     <button class="fab fab-have"  onclick="massAction('have')">✓ Tengo</button>
     <button class="fab fab-rep"   onclick="massAction('repeat')">R Repetida</button>
-    <button class="fab fab-print" onclick="doPrint()" title="Imprimir listado">🖨️</button>
+    <button class="fab fab-print" onclick="doPrint()" title="Imprimir">🖨️</button>
     <button class="fab fab-exit"  onclick="exitApp()">⬅</button>
   </div>
 </div>
-
 <div class="tip" id="tip"></div>
 
 <script>
+// ── Firebase ──────────────────────────────────────────────────────────────────
 const firebaseConfig={apiKey:"AIzaSyAQKtbnlTNY_zEq0EoJFAg8R_IDIfr4cKE",authDomain:"album-panini-2026-f559d.firebaseapp.com",databaseURL:"https://album-panini-2026-f559d-default-rtdb.firebaseio.com",projectId:"album-panini-2026-f559d",storageBucket:"album-panini-2026-f559d.firebasestorage.app",messagingSenderId:"84990453672",appId:"1:84990453672:web:d001c31783a16f676ddf9d"};
 firebase.initializeApp(firebaseConfig);
 const db=firebase.database();
-const GROUPS=[["GRUPO A",["México","Ecuador","Uzbekistán","Eslovaquia"]],["GRUPO B",["Argentina","Chile","Australia","Albania"]],["GRUPO C",["España","Marruecos","Bélgica","Turquía"]],["GRUPO D",["Portugal","Francia","Ghana","Venezuela"]],["GRUPO E",["Brasil","Alemania","Egipto","Costa Rica"]],["GRUPO F",["Inglaterra","Colombia","Eslovenia","Senegal"]],["GRUPO G",["Países Bajos","Estados Unidos","Irán","Panamá"]],["GRUPO H",["Italia","Uruguay","Irak","Congo"]],["GRUPO I",["Suiza","Perú","Nueva Zelanda","Arabia Saudí"]],["GRUPO J",["Japón","Camerún","Guinea","Togo"]],["GRUPO K",["Dinamarca","Polonia","Catar","Costa de Marfil"]],["GRUPO L",["Canadá","Corea del Sur","Honduras","Trinidad y Tobago"]]];
-const TLABELS=["Escudo","Foto",...Array.from({length:18},(_,i)=>`J${i+1}`)];
-const TOTAL=980;
-let stickers=[],n=1;
-for(let i=0;i<9;i++)stickers.push({num:n++,label:`FWC-${i+1}`,team:'Introducción',group:'INTRODUCCIÓN'});
-for(const[g,teams]of GROUPS)for(const team of teams)for(let i=0;i<20;i++)stickers.push({num:n++,label:TLABELS[i],team,group:g});
-for(let i=0;i<12;i++)stickers.push({num:n++,label:`CC-${i+1}`,team:'Coca-Cola',group:'COCA-COLA'});
-for(let i=0;i<11;i++)stickers.push({num:n++,label:`HIS-${i+1}`,team:'History',group:'HISTORY'});
+
+// ── STICKER DATA — Official Panini 2026 codes and player names ────────────────
+// Format: [code, playerName, foil?]
+// code = e.g. MEX1, MEX13=TeamPhoto, MEX1=Logo(foil)
+const ALBUM = [
+  // INTRO
+  {id:'FWC1',label:'Emblema 1/2',team:'Introducción',group:'INTRODUCCIÓN',foil:true},
+  {id:'FWC2',label:'Emblema 2/2',team:'Introducción',group:'INTRODUCCIÓN',foil:true},
+  {id:'FWC3',label:'Mascotas Oficiales',team:'Introducción',group:'INTRODUCCIÓN',foil:true},
+  {id:'FWC4',label:'Slogan Oficial',team:'Introducción',group:'INTRODUCCIÓN',foil:true},
+  {id:'FWC5',label:'Balón Oficial',team:'Introducción',group:'INTRODUCCIÓN',foil:true},
+  {id:'FWC6',label:'Canadá - Sede',team:'Introducción',group:'INTRODUCCIÓN',foil:true},
+  {id:'FWC7',label:'México - Sede',team:'Introducción',group:'INTRODUCCIÓN',foil:true},
+  {id:'FWC8',label:'USA - Sede',team:'Introducción',group:'INTRODUCCIÓN',foil:true},
+  // GRUPO A
+  {id:'MEX1',label:'Escudo',team:'México',group:'GRUPO A',foil:true},
+  {id:'MEX2',label:'L. Malagón',team:'México',group:'GRUPO A'},
+  {id:'MEX3',label:'J. Vasquez',team:'México',group:'GRUPO A'},
+  {id:'MEX4',label:'J. Sánchez',team:'México',group:'GRUPO A'},
+  {id:'MEX5',label:'C. Montes',team:'México',group:'GRUPO A'},
+  {id:'MEX6',label:'J. Gallardo',team:'México',group:'GRUPO A'},
+  {id:'MEX7',label:'I. Reyes',team:'México',group:'GRUPO A'},
+  {id:'MEX8',label:'D. Lainez',team:'México',group:'GRUPO A'},
+  {id:'MEX9',label:'C. Rodriguez',team:'México',group:'GRUPO A'},
+  {id:'MEX10',label:'E. Álvarez',team:'México',group:'GRUPO A'},
+  {id:'MEX11',label:'O. Pineda',team:'México',group:'GRUPO A'},
+  {id:'MEX12',label:'M. Ruiz',team:'México',group:'GRUPO A'},
+  {id:'MEX13',label:'Foto Grupal',team:'México',group:'GRUPO A'},
+  {id:'MEX14',label:'É. Sánchez',team:'México',group:'GRUPO A'},
+  {id:'MEX15',label:'H. Lozano',team:'México',group:'GRUPO A'},
+  {id:'MEX16',label:'S. Giménez',team:'México',group:'GRUPO A'},
+  {id:'MEX17',label:'R. Jiménez',team:'México',group:'GRUPO A'},
+  {id:'MEX18',label:'A. Vega',team:'México',group:'GRUPO A'},
+  {id:'MEX19',label:'R. Alvarado',team:'México',group:'GRUPO A'},
+  {id:'MEX20',label:'C. Huerta',team:'México',group:'GRUPO A'},
+  {id:'RSA1',label:'Escudo',team:'Sudáfrica',group:'GRUPO A',foil:true},
+  {id:'RSA2',label:'R. Williams',team:'Sudáfrica',group:'GRUPO A'},
+  {id:'RSA3',label:'S. Chaine',team:'Sudáfrica',group:'GRUPO A'},
+  {id:'RSA4',label:'A. Modiba',team:'Sudáfrica',group:'GRUPO A'},
+  {id:'RSA5',label:'S. Kabini',team:'Sudáfrica',group:'GRUPO A'},
+  {id:'RSA6',label:'M. Mbokazi',team:'Sudáfrica',group:'GRUPO A'},
+  {id:'RSA7',label:'K. Ndamane',team:'Sudáfrica',group:'GRUPO A'},
+  {id:'RSA8',label:'S. Ngezana',team:'Sudáfrica',group:'GRUPO A'},
+  {id:'RSA9',label:'K. Mudau',team:'Sudáfrica',group:'GRUPO A'},
+  {id:'RSA10',label:'N. Sibisi',team:'Sudáfrica',group:'GRUPO A'},
+  {id:'RSA11',label:'T. Mokoena',team:'Sudáfrica',group:'GRUPO A'},
+  {id:'RSA12',label:'T. Mbatha',team:'Sudáfrica',group:'GRUPO A'},
+  {id:'RSA13',label:'Foto Grupal',team:'Sudáfrica',group:'GRUPO A'},
+  {id:'RSA14',label:'B. Aubaas',team:'Sudáfrica',group:'GRUPO A'},
+  {id:'RSA15',label:'Y. Sithole',team:'Sudáfrica',group:'GRUPO A'},
+  {id:'RSA16',label:'S. Mbule',team:'Sudáfrica',group:'GRUPO A'},
+  {id:'RSA17',label:'L. Foster',team:'Sudáfrica',group:'GRUPO A'},
+  {id:'RSA18',label:'I. Rayners',team:'Sudáfrica',group:'GRUPO A'},
+  {id:'RSA19',label:'M. Nkota',team:'Sudáfrica',group:'GRUPO A'},
+  {id:'RSA20',label:'O. Appollis',team:'Sudáfrica',group:'GRUPO A'},
+  {id:'KOR1',label:'Escudo',team:'Corea del Sur',group:'GRUPO A',foil:true},
+  {id:'KOR2',label:'H. Jo',team:'Corea del Sur',group:'GRUPO A'},
+  {id:'KOR3',label:'S. Kim',team:'Corea del Sur',group:'GRUPO A'},
+  {id:'KOR4',label:'M. Kim',team:'Corea del Sur',group:'GRUPO A'},
+  {id:'KOR5',label:'Y. Cho',team:'Corea del Sur',group:'GRUPO A'},
+  {id:'KOR6',label:'Y. Seol',team:'Corea del Sur',group:'GRUPO A'},
+  {id:'KOR7',label:'H. Lee',team:'Corea del Sur',group:'GRUPO A'},
+  {id:'KOR8',label:'T. Lee',team:'Corea del Sur',group:'GRUPO A'},
+  {id:'KOR9',label:'M. Lee',team:'Corea del Sur',group:'GRUPO A'},
+  {id:'KOR10',label:'J. Lee',team:'Corea del Sur',group:'GRUPO A'},
+  {id:'KOR11',label:'I. Hwang',team:'Corea del Sur',group:'GRUPO A'},
+  {id:'KOR12',label:'K. Lee',team:'Corea del Sur',group:'GRUPO A'},
+  {id:'KOR13',label:'Foto Grupal',team:'Corea del Sur',group:'GRUPO A'},
+  {id:'KOR14',label:'S. Paik',team:'Corea del Sur',group:'GRUPO A'},
+  {id:'KOR15',label:'J. Castrop',team:'Corea del Sur',group:'GRUPO A'},
+  {id:'KOR16',label:'D. Lee',team:'Corea del Sur',group:'GRUPO A'},
+  {id:'KOR17',label:'G. Cho',team:'Corea del Sur',group:'GRUPO A'},
+  {id:'KOR18',label:'H. Son',team:'Corea del Sur',group:'GRUPO A'},
+  {id:'KOR19',label:'H. Hwang',team:'Corea del Sur',group:'GRUPO A'},
+  {id:'KOR20',label:'H. Oh',team:'Corea del Sur',group:'GRUPO A'},
+  {id:'CZE1',label:'Escudo',team:'Chequia',group:'GRUPO A',foil:true},
+  {id:'CZE2',label:'M. Kovar',team:'Chequia',group:'GRUPO A'},
+  {id:'CZE3',label:'J. Stanek',team:'Chequia',group:'GRUPO A'},
+  {id:'CZE4',label:'L. Krejci',team:'Chequia',group:'GRUPO A'},
+  {id:'CZE5',label:'V. Coufal',team:'Chequia',group:'GRUPO A'},
+  {id:'CZE6',label:'J. Zeleny',team:'Chequia',group:'GRUPO A'},
+  {id:'CZE7',label:'T. Holes',team:'Chequia',group:'GRUPO A'},
+  {id:'CZE8',label:'D. Zima',team:'Chequia',group:'GRUPO A'},
+  {id:'CZE9',label:'M. Sadilek',team:'Chequia',group:'GRUPO A'},
+  {id:'CZE10',label:'L. Provod',team:'Chequia',group:'GRUPO A'},
+  {id:'CZE11',label:'L. Cerv',team:'Chequia',group:'GRUPO A'},
+  {id:'CZE12',label:'T. Soucek',team:'Chequia',group:'GRUPO A'},
+  {id:'CZE13',label:'Foto Grupal',team:'Chequia',group:'GRUPO A'},
+  {id:'CZE14',label:'P. Sulc',team:'Chequia',group:'GRUPO A'},
+  {id:'CZE15',label:'M. Vydra',team:'Chequia',group:'GRUPO A'},
+  {id:'CZE16',label:'V. Kusej',team:'Chequia',group:'GRUPO A'},
+  {id:'CZE17',label:'T. Chory',team:'Chequia',group:'GRUPO A'},
+  {id:'CZE18',label:'V. Cerny',team:'Chequia',group:'GRUPO A'},
+  {id:'CZE19',label:'A. Hlozek',team:'Chequia',group:'GRUPO A'},
+  {id:'CZE20',label:'P. Schick',team:'Chequia',group:'GRUPO A'},
+  // GRUPO B
+  {id:'CAN1',label:'Escudo',team:'Canadá',group:'GRUPO B',foil:true},
+  {id:'CAN2',label:'D. St.Clair',team:'Canadá',group:'GRUPO B'},
+  {id:'CAN3',label:'A. Davies',team:'Canadá',group:'GRUPO B'},
+  {id:'CAN4',label:'A. Johnston',team:'Canadá',group:'GRUPO B'},
+  {id:'CAN5',label:'S. Adekugbe',team:'Canadá',group:'GRUPO B'},
+  {id:'CAN6',label:'R. Larvea',team:'Canadá',group:'GRUPO B'},
+  {id:'CAN7',label:'D. Cornelius',team:'Canadá',group:'GRUPO B'},
+  {id:'CAN8',label:'M. Bombito',team:'Canadá',group:'GRUPO B'},
+  {id:'CAN9',label:'K. Miller',team:'Canadá',group:'GRUPO B'},
+  {id:'CAN10',label:'S. Eustáquio',team:'Canadá',group:'GRUPO B'},
+  {id:'CAN11',label:'I. Koné',team:'Canadá',group:'GRUPO B'},
+  {id:'CAN12',label:'J. Osorio',team:'Canadá',group:'GRUPO B'},
+  {id:'CAN13',label:'Foto Grupal',team:'Canadá',group:'GRUPO B'},
+  {id:'CAN14',label:'J. Shaffelburg',team:'Canadá',group:'GRUPO B'},
+  {id:'CAN15',label:'M. Choinière',team:'Canadá',group:'GRUPO B'},
+  {id:'CAN16',label:'N. Sigur',team:'Canadá',group:'GRUPO B'},
+  {id:'CAN17',label:'T. Buchanan',team:'Canadá',group:'GRUPO B'},
+  {id:'CAN18',label:'L. Millar',team:'Canadá',group:'GRUPO B'},
+  {id:'CAN19',label:'C. Larin',team:'Canadá',group:'GRUPO B'},
+  {id:'CAN20',label:'J. David',team:'Canadá',group:'GRUPO B'},
+  {id:'BIH1',label:'Escudo',team:'Bosnia-Herzegovina',group:'GRUPO B',foil:true},
+  {id:'BIH2',label:'N. Vasilj',team:'Bosnia-Herzegovina',group:'GRUPO B'},
+  {id:'BIH3',label:'A. Dedic',team:'Bosnia-Herzegovina',group:'GRUPO B'},
+  {id:'BIH4',label:'S. Kolasinac',team:'Bosnia-Herzegovina',group:'GRUPO B'},
+  {id:'BIH5',label:'T. Muharemovic',team:'Bosnia-Herzegovina',group:'GRUPO B'},
+  {id:'BIH6',label:'N. Mujakic',team:'Bosnia-Herzegovina',group:'GRUPO B'},
+  {id:'BIH7',label:'N. Katic',team:'Bosnia-Herzegovina',group:'GRUPO B'},
+  {id:'BIH8',label:'A. Hadziahmetovic',team:'Bosnia-Herzegovina',group:'GRUPO B'},
+  {id:'BIH9',label:'B. Tahirovic',team:'Bosnia-Herzegovina',group:'GRUPO B'},
+  {id:'BIH10',label:'A. Gigovic',team:'Bosnia-Herzegovina',group:'GRUPO B'},
+  {id:'BIH11',label:'I. Sunjic',team:'Bosnia-Herzegovina',group:'GRUPO B'},
+  {id:'BIH12',label:'I. Basic',team:'Bosnia-Herzegovina',group:'GRUPO B'},
+  {id:'BIH13',label:'Foto Grupal',team:'Bosnia-Herzegovina',group:'GRUPO B'},
+  {id:'BIH14',label:'D. Burnic',team:'Bosnia-Herzegovina',group:'GRUPO B'},
+  {id:'BIH15',label:'E. Bajraktarevic',team:'Bosnia-Herzegovina',group:'GRUPO B'},
+  {id:'BIH16',label:'A. Memic',team:'Bosnia-Herzegovina',group:'GRUPO B'},
+  {id:'BIH17',label:'E. Demirovic',team:'Bosnia-Herzegovina',group:'GRUPO B'},
+  {id:'BIH18',label:'E. Dzeko',team:'Bosnia-Herzegovina',group:'GRUPO B'},
+  {id:'BIH19',label:'S. Bazdar',team:'Bosnia-Herzegovina',group:'GRUPO B'},
+  {id:'BIH20',label:'H. Tabakovic',team:'Bosnia-Herzegovina',group:'GRUPO B'},
+  {id:'QAT1',label:'Escudo',team:'Qatar',group:'GRUPO B',foil:true},
+  {id:'QAT2',label:'M. Barsham',team:'Qatar',group:'GRUPO B'},
+  {id:'QAT3',label:'S. Albrake',team:'Qatar',group:'GRUPO B'},
+  {id:'QAT4',label:'L. Mendes',team:'Qatar',group:'GRUPO B'},
+  {id:'QAT5',label:'H. Ahmed',team:'Qatar',group:'GRUPO B'},
+  {id:'QAT6',label:'B. Khoukhi',team:'Qatar',group:'GRUPO B'},
+  {id:'QAT7',label:'P. Miguel',team:'Qatar',group:'GRUPO B'},
+  {id:'QAT8',label:'T. Salman',team:'Qatar',group:'GRUPO B'},
+  {id:'QAT9',label:'M. Al-Mannai',team:'Qatar',group:'GRUPO B'},
+  {id:'QAT10',label:'K. Boudiaf',team:'Qatar',group:'GRUPO B'},
+  {id:'QAT11',label:'A. Madibo',team:'Qatar',group:'GRUPO B'},
+  {id:'QAT12',label:'A. Fatehi',team:'Qatar',group:'GRUPO B'},
+  {id:'QAT13',label:'Foto Grupal',team:'Qatar',group:'GRUPO B'},
+  {id:'QAT14',label:'M. Waad',team:'Qatar',group:'GRUPO B'},
+  {id:'QAT15',label:'A. Hatem',team:'Qatar',group:'GRUPO B'},
+  {id:'QAT16',label:'H. Al-Haydos',team:'Qatar',group:'GRUPO B'},
+  {id:'QAT17',label:'E. Junior',team:'Qatar',group:'GRUPO B'},
+  {id:'QAT18',label:'A. Afif',team:'Qatar',group:'GRUPO B'},
+  {id:'QAT19',label:'A. Al Ganehi',team:'Qatar',group:'GRUPO B'},
+  {id:'QAT20',label:'A. Ali',team:'Qatar',group:'GRUPO B'},
+  {id:'SUI1',label:'Escudo',team:'Suiza',group:'GRUPO B',foil:true},
+  {id:'SUI2',label:'G. Kobel',team:'Suiza',group:'GRUPO B'},
+  {id:'SUI3',label:'Y. Mvogo',team:'Suiza',group:'GRUPO B'},
+  {id:'SUI4',label:'M. Akanji',team:'Suiza',group:'GRUPO B'},
+  {id:'SUI5',label:'R. Rodriguez',team:'Suiza',group:'GRUPO B'},
+  {id:'SUI6',label:'N. Elvedi',team:'Suiza',group:'GRUPO B'},
+  {id:'SUI7',label:'A. Amenda',team:'Suiza',group:'GRUPO B'},
+  {id:'SUI8',label:'S. Widmer',team:'Suiza',group:'GRUPO B'},
+  {id:'SUI9',label:'G. Xhaka',team:'Suiza',group:'GRUPO B'},
+  {id:'SUI10',label:'D. Zakaria',team:'Suiza',group:'GRUPO B'},
+  {id:'SUI11',label:'R. Freuler',team:'Suiza',group:'GRUPO B'},
+  {id:'SUI12',label:'F. Rieder',team:'Suiza',group:'GRUPO B'},
+  {id:'SUI13',label:'Foto Grupal',team:'Suiza',group:'GRUPO B'},
+  {id:'SUI14',label:'A. Jashari',team:'Suiza',group:'GRUPO B'},
+  {id:'SUI15',label:'J. Manzambi',team:'Suiza',group:'GRUPO B'},
+  {id:'SUI16',label:'M. Aebischer',team:'Suiza',group:'GRUPO B'},
+  {id:'SUI17',label:'B. Embolo',team:'Suiza',group:'GRUPO B'},
+  {id:'SUI18',label:'R. Vargas',team:'Suiza',group:'GRUPO B'},
+  {id:'SUI19',label:'D. Ndoye',team:'Suiza',group:'GRUPO B'},
+  {id:'SUI20',label:'Z. Amdouni',team:'Suiza',group:'GRUPO B'},
+  // GRUPO C
+  {id:'BRA1',label:'Escudo',team:'Brasil',group:'GRUPO C',foil:true},
+  {id:'BRA2',label:'Alisson',team:'Brasil',group:'GRUPO C'},
+  {id:'BRA3',label:'Bento',team:'Brasil',group:'GRUPO C'},
+  {id:'BRA4',label:'Marquinhos',team:'Brasil',group:'GRUPO C'},
+  {id:'BRA5',label:'É. Militão',team:'Brasil',group:'GRUPO C'},
+  {id:'BRA6',label:'G. Magalhães',team:'Brasil',group:'GRUPO C'},
+  {id:'BRA7',label:'Danilo',team:'Brasil',group:'GRUPO C'},
+  {id:'BRA8',label:'Wesley',team:'Brasil',group:'GRUPO C'},
+  {id:'BRA9',label:'L. Paquetá',team:'Brasil',group:'GRUPO C'},
+  {id:'BRA10',label:'Casemiro',team:'Brasil',group:'GRUPO C'},
+  {id:'BRA11',label:'B. Guimarães',team:'Brasil',group:'GRUPO C'},
+  {id:'BRA12',label:'L. Henrique',team:'Brasil',group:'GRUPO C'},
+  {id:'BRA13',label:'Foto Grupal',team:'Brasil',group:'GRUPO C'},
+  {id:'BRA14',label:'Vinicius Jr.',team:'Brasil',group:'GRUPO C'},
+  {id:'BRA15',label:'Rodrygo',team:'Brasil',group:'GRUPO C'},
+  {id:'BRA16',label:'João Pedro',team:'Brasil',group:'GRUPO C'},
+  {id:'BRA17',label:'M. Cunha',team:'Brasil',group:'GRUPO C'},
+  {id:'BRA18',label:'G. Martinelli',team:'Brasil',group:'GRUPO C'},
+  {id:'BRA19',label:'Raphinha',team:'Brasil',group:'GRUPO C'},
+  {id:'BRA20',label:'Estévão',team:'Brasil',group:'GRUPO C'},
+  {id:'MAR1',label:'Escudo',team:'Marruecos',group:'GRUPO C',foil:true},
+  {id:'MAR2',label:'Y. Bounou',team:'Marruecos',group:'GRUPO C'},
+  {id:'MAR3',label:'M. El Kajoui',team:'Marruecos',group:'GRUPO C'},
+  {id:'MAR4',label:'A. Hakimi',team:'Marruecos',group:'GRUPO C'},
+  {id:'MAR5',label:'N. Mazraoui',team:'Marruecos',group:'GRUPO C'},
+  {id:'MAR6',label:'N. Aguerd',team:'Marruecos',group:'GRUPO C'},
+  {id:'MAR7',label:'R. Saiss',team:'Marruecos',group:'GRUPO C'},
+  {id:'MAR8',label:'J. El Yamio',team:'Marruecos',group:'GRUPO C'},
+  {id:'MAR9',label:'A. Masina',team:'Marruecos',group:'GRUPO C'},
+  {id:'MAR10',label:'S. Amrabat',team:'Marruecos',group:'GRUPO C'},
+  {id:'MAR11',label:'A. Ounahi',team:'Marruecos',group:'GRUPO C'},
+  {id:'MAR12',label:'E. Ben Seghir',team:'Marruecos',group:'GRUPO C'},
+  {id:'MAR13',label:'Foto Grupal',team:'Marruecos',group:'GRUPO C'},
+  {id:'MAR14',label:'B. El Khannouss',team:'Marruecos',group:'GRUPO C'},
+  {id:'MAR15',label:'I. Saibari',team:'Marruecos',group:'GRUPO C'},
+  {id:'MAR16',label:'Y. En-Nesyri',team:'Marruecos',group:'GRUPO C'},
+  {id:'MAR17',label:'A. Ezzalzouli',team:'Marruecos',group:'GRUPO C'},
+  {id:'MAR18',label:'S. Rahimi',team:'Marruecos',group:'GRUPO C'},
+  {id:'MAR19',label:'B. Diaz',team:'Marruecos',group:'GRUPO C'},
+  {id:'MAR20',label:'A. El Kaabi',team:'Marruecos',group:'GRUPO C'},
+  {id:'HAI1',label:'Escudo',team:'Haití',group:'GRUPO C',foil:true},
+  {id:'HAI2',label:'J. Placide',team:'Haití',group:'GRUPO C'},
+  {id:'HAI3',label:'C. Arcus',team:'Haití',group:'GRUPO C'},
+  {id:'HAI4',label:'M. Expérience',team:'Haití',group:'GRUPO C'},
+  {id:'HAI5',label:'J. Duverne',team:'Haití',group:'GRUPO C'},
+  {id:'HAI6',label:'R. Adé',team:'Haití',group:'GRUPO C'},
+  {id:'HAI7',label:'D. Lacroix',team:'Haití',group:'GRUPO C'},
+  {id:'HAI8',label:'G. Metusala',team:'Haití',group:'GRUPO C'},
+  {id:'HAI9',label:'H. Delcroix',team:'Haití',group:'GRUPO C'},
+  {id:'HAI10',label:'L. Pierre',team:'Haití',group:'GRUPO C'},
+  {id:'HAI11',label:'D. Jean Jacques',team:'Haití',group:'GRUPO C'},
+  {id:'HAI12',label:'J. Bellegarde',team:'Haití',group:'GRUPO C'},
+  {id:'HAI13',label:'Foto Grupal',team:'Haití',group:'GRUPO C'},
+  {id:'HAI14',label:'C. Attys',team:'Haití',group:'GRUPO C'},
+  {id:'HAI15',label:'D. Etienne Jr',team:'Haití',group:'GRUPO C'},
+  {id:'HAI16',label:'J. Casimir',team:'Haití',group:'GRUPO C'},
+  {id:'HAI17',label:'R. Providence',team:'Haití',group:'GRUPO C'},
+  {id:'HAI18',label:'D. Nazon',team:'Haití',group:'GRUPO C'},
+  {id:'HAI19',label:'L. Deedson',team:'Haití',group:'GRUPO C'},
+  {id:'HAI20',label:'F. Pierrot',team:'Haití',group:'GRUPO C'},
+  {id:'SCO1',label:'Escudo',team:'Escocia',group:'GRUPO C',foil:true},
+  {id:'SCO2',label:'A. Gunn',team:'Escocia',group:'GRUPO C'},
+  {id:'SCO3',label:'J. Hendry',team:'Escocia',group:'GRUPO C'},
+  {id:'SCO4',label:'K. Tierney',team:'Escocia',group:'GRUPO C'},
+  {id:'SCO5',label:'A. Hickey',team:'Escocia',group:'GRUPO C'},
+  {id:'SCO6',label:'A. Robertson',team:'Escocia',group:'GRUPO C'},
+  {id:'SCO7',label:'S. McKenna',team:'Escocia',group:'GRUPO C'},
+  {id:'SCO8',label:'J. Souttar',team:'Escocia',group:'GRUPO C'},
+  {id:'SCO9',label:'A. Ralston',team:'Escocia',group:'GRUPO C'},
+  {id:'SCO10',label:'G. Hanley',team:'Escocia',group:'GRUPO C'},
+  {id:'SCO11',label:'S. McTominay',team:'Escocia',group:'GRUPO C'},
+  {id:'SCO12',label:'B. Gilmour',team:'Escocia',group:'GRUPO C'},
+  {id:'SCO13',label:'Foto Grupal',team:'Escocia',group:'GRUPO C'},
+  {id:'SCO14',label:'L. Ferguson',team:'Escocia',group:'GRUPO C'},
+  {id:'SCO15',label:'R. Christie',team:'Escocia',group:'GRUPO C'},
+  {id:'SCO16',label:'K. McLean',team:'Escocia',group:'GRUPO C'},
+  {id:'SCO17',label:'J. McGinn',team:'Escocia',group:'GRUPO C'},
+  {id:'SCO18',label:'L. Dykes',team:'Escocia',group:'GRUPO C'},
+  {id:'SCO19',label:'C. Adams',team:'Escocia',group:'GRUPO C'},
+  {id:'SCO20',label:'B. Gannon-Doak',team:'Escocia',group:'GRUPO C'},
+  // GRUPO D
+  {id:'USA1',label:'Escudo',team:'USA',group:'GRUPO D',foil:true},
+  {id:'USA2',label:'M. Freese',team:'USA',group:'GRUPO D'},
+  {id:'USA3',label:'C. Richards',team:'USA',group:'GRUPO D'},
+  {id:'USA4',label:'T. Ream',team:'USA',group:'GRUPO D'},
+  {id:'USA5',label:'M. McKenzie',team:'USA',group:'GRUPO D'},
+  {id:'USA6',label:'A. Freeman',team:'USA',group:'GRUPO D'},
+  {id:'USA7',label:'A. Robinson',team:'USA',group:'GRUPO D'},
+  {id:'USA8',label:'T. Adams',team:'USA',group:'GRUPO D'},
+  {id:'USA9',label:'T. Tessmann',team:'USA',group:'GRUPO D'},
+  {id:'USA10',label:'W. McKennie',team:'USA',group:'GRUPO D'},
+  {id:'USA11',label:'C. Roldan',team:'USA',group:'GRUPO D'},
+  {id:'USA12',label:'T. Weah',team:'USA',group:'GRUPO D'},
+  {id:'USA13',label:'Foto Grupal',team:'USA',group:'GRUPO D'},
+  {id:'USA14',label:'D. Luna',team:'USA',group:'GRUPO D'},
+  {id:'USA15',label:'M. Tillman',team:'USA',group:'GRUPO D'},
+  {id:'USA16',label:'C. Pulisic',team:'USA',group:'GRUPO D'},
+  {id:'USA17',label:'B. Aaronson',team:'USA',group:'GRUPO D'},
+  {id:'USA18',label:'R. Pepi',team:'USA',group:'GRUPO D'},
+  {id:'USA19',label:'H. Wright',team:'USA',group:'GRUPO D'},
+  {id:'USA20',label:'F. Balogun',team:'USA',group:'GRUPO D'},
+  {id:'PAR1',label:'Escudo',team:'Paraguay',group:'GRUPO D',foil:true},
+  {id:'PAR2',label:'R. Fernandez',team:'Paraguay',group:'GRUPO D'},
+  {id:'PAR3',label:'O. Gill',team:'Paraguay',group:'GRUPO D'},
+  {id:'PAR4',label:'G. Gomez',team:'Paraguay',group:'GRUPO D'},
+  {id:'PAR5',label:'F. Balbuena',team:'Paraguay',group:'GRUPO D'},
+  {id:'PAR6',label:'J. Cáceres',team:'Paraguay',group:'GRUPO D'},
+  {id:'PAR7',label:'O. Alderete',team:'Paraguay',group:'GRUPO D'},
+  {id:'PAR8',label:'J. Alonso',team:'Paraguay',group:'GRUPO D'},
+  {id:'PAR9',label:'M. Villasanti',team:'Paraguay',group:'GRUPO D'},
+  {id:'PAR10',label:'D. Gomez',team:'Paraguay',group:'GRUPO D'},
+  {id:'PAR11',label:'D. Bobadilla',team:'Paraguay',group:'GRUPO D'},
+  {id:'PAR12',label:'A. Cubas',team:'Paraguay',group:'GRUPO D'},
+  {id:'PAR13',label:'Foto Grupal',team:'Paraguay',group:'GRUPO D'},
+  {id:'PAR14',label:'M. Galarza',team:'Paraguay',group:'GRUPO D'},
+  {id:'PAR15',label:'J. Enciso',team:'Paraguay',group:'GRUPO D'},
+  {id:'PAR16',label:'A. R. Gamarra',team:'Paraguay',group:'GRUPO D'},
+  {id:'PAR17',label:'M. Almirón',team:'Paraguay',group:'GRUPO D'},
+  {id:'PAR18',label:'R. Sosa',team:'Paraguay',group:'GRUPO D'},
+  {id:'PAR19',label:'A. Romero',team:'Paraguay',group:'GRUPO D'},
+  {id:'PAR20',label:'A. Sanabria',team:'Paraguay',group:'GRUPO D'},
+  {id:'AUS1',label:'Escudo',team:'Australia',group:'GRUPO D',foil:true},
+  {id:'AUS2',label:'M. Ryan',team:'Australia',group:'GRUPO D'},
+  {id:'AUS3',label:'J. Gauci',team:'Australia',group:'GRUPO D'},
+  {id:'AUS4',label:'H. Souttar',team:'Australia',group:'GRUPO D'},
+  {id:'AUS5',label:'A. Circati',team:'Australia',group:'GRUPO D'},
+  {id:'AUS6',label:'J. Bos',team:'Australia',group:'GRUPO D'},
+  {id:'AUS7',label:'A. Behich',team:'Australia',group:'GRUPO D'},
+  {id:'AUS8',label:'C. Burgess',team:'Australia',group:'GRUPO D'},
+  {id:'AUS9',label:'L. Miller',team:'Australia',group:'GRUPO D'},
+  {id:'AUS10',label:'M. Degenek',team:'Australia',group:'GRUPO D'},
+  {id:'AUS11',label:'J. Irvine',team:'Australia',group:'GRUPO D'},
+  {id:'AUS12',label:'R. McGree',team:'Australia',group:'GRUPO D'},
+  {id:'AUS13',label:'Foto Grupal',team:'Australia',group:'GRUPO D'},
+  {id:'AUS14',label:'A. O\'Neill',team:'Australia',group:'GRUPO D'},
+  {id:'AUS15',label:'C. Metcalfe',team:'Australia',group:'GRUPO D'},
+  {id:'AUS16',label:'P. Yazbek',team:'Australia',group:'GRUPO D'},
+  {id:'AUS17',label:'C. Goodwin',team:'Australia',group:'GRUPO D'},
+  {id:'AUS18',label:'K. Vengi',team:'Australia',group:'GRUPO D'},
+  {id:'AUS19',label:'N. Irankunda',team:'Australia',group:'GRUPO D'},
+  {id:'AUS20',label:'M. Touré',team:'Australia',group:'GRUPO D'},
+  {id:'TUR1',label:'Escudo',team:'Turquía',group:'GRUPO D',foil:true},
+  {id:'TUR2',label:'U. Cakir',team:'Turquía',group:'GRUPO D'},
+  {id:'TUR3',label:'M. Muldur',team:'Turquía',group:'GRUPO D'},
+  {id:'TUR4',label:'S. Saric',team:'Turquía',group:'GRUPO D'},
+  {id:'TUR5',label:'K. Ayhan',team:'Turquía',group:'GRUPO D'},
+  {id:'TUR6',label:'A. Kabak',team:'Turquía',group:'GRUPO D'},
+  {id:'TUR7',label:'A. Calhanoglu',team:'Turquía',group:'GRUPO D'},
+  {id:'TUR8',label:'K. Akturkoglu',team:'Turquía',group:'GRUPO D'},
+  {id:'TUR9',label:'S. Ozcan',team:'Turquía',group:'GRUPO D'},
+  {id:'TUR10',label:'H. Calhanoglu',team:'Turquía',group:'GRUPO D'},
+  {id:'TUR11',label:'I. Güler',team:'Turquía',group:'GRUPO D'},
+  {id:'TUR12',label:'B. Yilmaz',team:'Turquía',group:'GRUPO D'},
+  {id:'TUR13',label:'Foto Grupal',team:'Turquía',group:'GRUPO D'},
+  {id:'TUR14',label:'F. Kadioglu',team:'Turquía',group:'GRUPO D'},
+  {id:'TUR15',label:'K. Koybasi',team:'Turquía',group:'GRUPO D'},
+  {id:'TUR16',label:'Y. Yazici',team:'Turquía',group:'GRUPO D'},
+  {id:'TUR17',label:'E. Yokuslu',team:'Turquía',group:'GRUPO D'},
+  {id:'TUR18',label:'O. Kahveci',team:'Turquía',group:'GRUPO D'},
+  {id:'TUR19',label:'S. Akbas',team:'Turquía',group:'GRUPO D'},
+  {id:'TUR20',label:'K. Tosun',team:'Turquía',group:'GRUPO D'},
+  // GRUPO E
+  {id:'ECU1',label:'Escudo',team:'Ecuador',group:'GRUPO E',foil:true},
+  {id:'ECU2',label:'H. Galíndez',team:'Ecuador',group:'GRUPO E'},
+  {id:'ECU3',label:'A. Preciado',team:'Ecuador',group:'GRUPO E'},
+  {id:'ECU4',label:'P. Hincapié',team:'Ecuador',group:'GRUPO E'},
+  {id:'ECU5',label:'W. Pacho',team:'Ecuador',group:'GRUPO E'},
+  {id:'ECU6',label:'X. Arreaga',team:'Ecuador',group:'GRUPO E'},
+  {id:'ECU7',label:'P. Ibáñez',team:'Ecuador',group:'GRUPO E'},
+  {id:'ECU8',label:'J. Ordóñez',team:'Ecuador',group:'GRUPO E'},
+  {id:'ECU9',label:'M. Caicedo',team:'Ecuador',group:'GRUPO E'},
+  {id:'ECU10',label:'C. Gruezo',team:'Ecuador',group:'GRUPO E'},
+  {id:'ECU11',label:'K. Rodríguez',team:'Ecuador',group:'GRUPO E'},
+  {id:'ECU12',label:'J. Cifuentes',team:'Ecuador',group:'GRUPO E'},
+  {id:'ECU13',label:'Foto Grupal',team:'Ecuador',group:'GRUPO E'},
+  {id:'ECU14',label:'G. Plata',team:'Ecuador',group:'GRUPO E'},
+  {id:'ECU15',label:'J. Sarmiento',team:'Ecuador',group:'GRUPO E'},
+  {id:'ECU16',label:'E. Valencia',team:'Ecuador',group:'GRUPO E'},
+  {id:'ECU17',label:'A. Almada',team:'Ecuador',group:'GRUPO E'},
+  {id:'ECU18',label:'K. Bentez',team:'Ecuador',group:'GRUPO E'},
+  {id:'ECU19',label:'J. Mina',team:'Ecuador',group:'GRUPO E'},
+  {id:'ECU20',label:'M. Estupiñán',team:'Ecuador',group:'GRUPO E'},
+  {id:'GER1',label:'Escudo',team:'Alemania',group:'GRUPO E',foil:true},
+  {id:'GER2',label:'M. ter Stegen',team:'Alemania',group:'GRUPO E'},
+  {id:'GER3',label:'J. Tah',team:'Alemania',group:'GRUPO E'},
+  {id:'GER4',label:'D. Raum',team:'Alemania',group:'GRUPO E'},
+  {id:'GER5',label:'N. Schlotterbeck',team:'Alemania',group:'GRUPO E'},
+  {id:'GER6',label:'A. Rüdiger',team:'Alemania',group:'GRUPO E'},
+  {id:'GER7',label:'W. Anton',team:'Alemania',group:'GRUPO E'},
+  {id:'GER8',label:'R. Baku',team:'Alemania',group:'GRUPO E'},
+  {id:'GER9',label:'M. Mittelstadt',team:'Alemania',group:'GRUPO E'},
+  {id:'GER10',label:'J. Kimmich',team:'Alemania',group:'GRUPO E'},
+  {id:'GER11',label:'F. Wirtz',team:'Alemania',group:'GRUPO E'},
+  {id:'GER12',label:'F. Nmecha',team:'Alemania',group:'GRUPO E'},
+  {id:'GER13',label:'Foto Grupal',team:'Alemania',group:'GRUPO E'},
+  {id:'GER14',label:'L. Goretzka',team:'Alemania',group:'GRUPO E'},
+  {id:'GER15',label:'J. Musiala',team:'Alemania',group:'GRUPO E'},
+  {id:'GER16',label:'S. Gnabry',team:'Alemania',group:'GRUPO E'},
+  {id:'GER17',label:'K. Havertz',team:'Alemania',group:'GRUPO E'},
+  {id:'GER18',label:'L. Sané',team:'Alemania',group:'GRUPO E'},
+  {id:'GER19',label:'K. Adeyemi',team:'Alemania',group:'GRUPO E'},
+  {id:'GER20',label:'N. Woltemade',team:'Alemania',group:'GRUPO E'},
+  {id:'CUW1',label:'Escudo',team:'Curazao',group:'GRUPO E',foil:true},
+  {id:'CUW2',label:'E. Room',team:'Curazao',group:'GRUPO E'},
+  {id:'CUW3',label:'A. Obispo',team:'Curazao',group:'GRUPO E'},
+  {id:'CUW4',label:'S. Floranus',team:'Curazao',group:'GRUPO E'},
+  {id:'CUW5',label:'J. Gaari',team:'Curazao',group:'GRUPO E'},
+  {id:'CUW6',label:'J. Brenet',team:'Curazao',group:'GRUPO E'},
+  {id:'CUW7',label:'R. Van Eijma',team:'Curazao',group:'GRUPO E'},
+  {id:'CUW8',label:'S. Sambo',team:'Curazao',group:'GRUPO E'},
+  {id:'CUW9',label:'L. Comenencia',team:'Curazao',group:'GRUPO E'},
+  {id:'CUW10',label:'G. Roemeratoe',team:'Curazao',group:'GRUPO E'},
+  {id:'CUW11',label:'J. Bacuna',team:'Curazao',group:'GRUPO E'},
+  {id:'CUW12',label:'L. Bacuna',team:'Curazao',group:'GRUPO E'},
+  {id:'CUW13',label:'Foto Grupal',team:'Curazao',group:'GRUPO E'},
+  {id:'CUW14',label:'T. Chong',team:'Curazao',group:'GRUPO E'},
+  {id:'CUW15',label:'K. Gorre',team:'Curazao',group:'GRUPO E'},
+  {id:'CUW16',label:'J. Margaritha',team:'Curazao',group:'GRUPO E'},
+  {id:'CUW17',label:'J. Locadia',team:'Curazao',group:'GRUPO E'},
+  {id:'CUW18',label:'J. Antonisse',team:'Curazao',group:'GRUPO E'},
+  {id:'CUW19',label:'G. Kastaneer',team:'Curazao',group:'GRUPO E'},
+  {id:'CUW20',label:'C. Daal',team:'Curazao',group:'GRUPO E'},
+  {id:'CIV1',label:'Escudo',team:'Costa de Marfil',group:'GRUPO E',foil:true},
+  {id:'CIV2',label:'Y. Fofana',team:'Costa de Marfil',group:'GRUPO E'},
+  {id:'CIV3',label:'O. Diakité',team:'Costa de Marfil',group:'GRUPO E'},
+  {id:'CIV4',label:'W. Boly',team:'Costa de Marfil',group:'GRUPO E'},
+  {id:'CIV5',label:'O. Kossounou',team:'Costa de Marfil',group:'GRUPO E'},
+  {id:'CIV6',label:'E. Agbadou',team:'Costa de Marfil',group:'GRUPO E'},
+  {id:'CIV7',label:'W. Singo',team:'Costa de Marfil',group:'GRUPO E'},
+  {id:'CIV8',label:'G. Konan',team:'Costa de Marfil',group:'GRUPO E'},
+  {id:'CIV9',label:'O. Diomande',team:'Costa de Marfil',group:'GRUPO E'},
+  {id:'CIV10',label:'F. Kessie',team:'Costa de Marfil',group:'GRUPO E'},
+  {id:'CIV11',label:'S. Fofana',team:'Costa de Marfil',group:'GRUPO E'},
+  {id:'CIV12',label:'I. Sangare',team:'Costa de Marfil',group:'GRUPO E'},
+  {id:'CIV13',label:'Foto Grupal',team:'Costa de Marfil',group:'GRUPO E'},
+  {id:'CIV14',label:'J. Gbamin',team:'Costa de Marfil',group:'GRUPO E'},
+  {id:'CIV15',label:'N. Pépé',team:'Costa de Marfil',group:'GRUPO E'},
+  {id:'CIV16',label:'S. Aurier',team:'Costa de Marfil',group:'GRUPO E'},
+  {id:'CIV17',label:'F. Ghezzal',team:'Costa de Marfil',group:'GRUPO E'},
+  {id:'CIV18',label:'W. Zaha',team:'Costa de Marfil',group:'GRUPO E'},
+  {id:'CIV19',label:'S. Gradel',team:'Costa de Marfil',group:'GRUPO E'},
+  {id:'CIV20',label:'E. Guessand',team:'Costa de Marfil',group:'GRUPO E'},
+  // GRUPO F
+  {id:'NED1',label:'Escudo',team:'Países Bajos',group:'GRUPO F',foil:true},
+  {id:'NED2',label:'B. Flekken',team:'Países Bajos',group:'GRUPO F'},
+  {id:'NED3',label:'V. van Dijk',team:'Países Bajos',group:'GRUPO F'},
+  {id:'NED4',label:'S. de Vrij',team:'Países Bajos',group:'GRUPO F'},
+  {id:'NED5',label:'N. Timber',team:'Países Bajos',group:'GRUPO F'},
+  {id:'NED6',label:'D. Dumfries',team:'Países Bajos',group:'GRUPO F'},
+  {id:'NED7',label:'M. de Ligt',team:'Países Bajos',group:'GRUPO F'},
+  {id:'NED8',label:'D. Blind',team:'Países Bajos',group:'GRUPO F'},
+  {id:'NED9',label:'T. Reijnders',team:'Países Bajos',group:'GRUPO F'},
+  {id:'NED10',label:'X. Simons',team:'Países Bajos',group:'GRUPO F'},
+  {id:'NED11',label:'R. Gravenberch',team:'Países Bajos',group:'GRUPO F'},
+  {id:'NED12',label:'C. Gakpo',team:'Países Bajos',group:'GRUPO F'},
+  {id:'NED13',label:'Foto Grupal',team:'Países Bajos',group:'GRUPO F'},
+  {id:'NED14',label:'F. de Jong',team:'Países Bajos',group:'GRUPO F'},
+  {id:'NED15',label:'S. Bergwijn',team:'Países Bajos',group:'GRUPO F'},
+  {id:'NED16',label:'B. Brobbey',team:'Países Bajos',group:'GRUPO F'},
+  {id:'NED17',label:'D. Malen',team:'Países Bajos',group:'GRUPO F'},
+  {id:'NED18',label:'M. Klaassen',team:'Países Bajos',group:'GRUPO F'},
+  {id:'NED19',label:'W. Weghorst',team:'Países Bajos',group:'GRUPO F'},
+  {id:'NED20',label:'J. Doku',team:'Países Bajos',group:'GRUPO F'},
+  {id:'JPN1',label:'Escudo',team:'Japón',group:'GRUPO F',foil:true},
+  {id:'JPN2',label:'S. Gonda',team:'Japón',group:'GRUPO F'},
+  {id:'JPN3',label:'M. Itakura',team:'Japón',group:'GRUPO F'},
+  {id:'JPN4',label:'T. Tomiyasu',team:'Japón',group:'GRUPO F'},
+  {id:'JPN5',label:'Y. Nagatomo',team:'Japón',group:'GRUPO F'},
+  {id:'JPN6',label:'K. Machida',team:'Japón',group:'GRUPO F'},
+  {id:'JPN7',label:'H. Ito',team:'Japón',group:'GRUPO F'},
+  {id:'JPN8',label:'W. Endo',team:'Japón',group:'GRUPO F'},
+  {id:'JPN9',label:'J. Ito',team:'Japón',group:'GRUPO F'},
+  {id:'JPN10',label:'D. Kamada',team:'Japón',group:'GRUPO F'},
+  {id:'JPN11',label:'A. Ueda',team:'Japón',group:'GRUPO F'},
+  {id:'JPN12',label:'T. Kubo',team:'Japón',group:'GRUPO F'},
+  {id:'JPN13',label:'Foto Grupal',team:'Japón',group:'GRUPO F'},
+  {id:'JPN14',label:'R. Doan',team:'Japón',group:'GRUPO F'},
+  {id:'JPN15',label:'K. Mitoma',team:'Japón',group:'GRUPO F'},
+  {id:'JPN16',label:'H. Sakai',team:'Japón',group:'GRUPO F'},
+  {id:'JPN17',label:'K. Furuhashi',team:'Japón',group:'GRUPO F'},
+  {id:'JPN18',label:'S. Ito',team:'Japón',group:'GRUPO F'},
+  {id:'JPN19',label:'A. Ohshima',team:'Japón',group:'GRUPO F'},
+  {id:'JPN20',label:'K. Nakamura',team:'Japón',group:'GRUPO F'},
+  {id:'SWE1',label:'Escudo',team:'Suecia',group:'GRUPO F',foil:true},
+  {id:'SWE2',label:'R. Olsen',team:'Suecia',group:'GRUPO F'},
+  {id:'SWE3',label:'V. Lindelöf',team:'Suecia',group:'GRUPO F'},
+  {id:'SWE4',label:'M. Lustig',team:'Suecia',group:'GRUPO F'},
+  {id:'SWE5',label:'L. Augustinsson',team:'Suecia',group:'GRUPO F'},
+  {id:'SWE6',label:'A. Danielson',team:'Suecia',group:'GRUPO F'},
+  {id:'SWE7',label:'K. Olsson',team:'Suecia',group:'GRUPO F'},
+  {id:'SWE8',label:'S. Ekdal',team:'Suecia',group:'GRUPO F'},
+  {id:'SWE9',label:'A. Isak',team:'Suecia',group:'GRUPO F'},
+  {id:'SWE10',label:'E. Forsberg',team:'Suecia',group:'GRUPO F'},
+  {id:'SWE11',label:'V. Jansson',team:'Suecia',group:'GRUPO F'},
+  {id:'SWE12',label:'D. Kulusevski',team:'Suecia',group:'GRUPO F'},
+  {id:'SWE13',label:'Foto Grupal',team:'Suecia',group:'GRUPO F'},
+  {id:'SWE14',label:'M. Dahlin',team:'Suecia',group:'GRUPO F'},
+  {id:'SWE15',label:'A. Aasgaard',team:'Suecia',group:'GRUPO F'},
+  {id:'SWE16',label:'K. Karlsson',team:'Suecia',group:'GRUPO F'},
+  {id:'SWE17',label:'Z. Larsson',team:'Suecia',group:'GRUPO F'},
+  {id:'SWE18',label:'A. Gyokeres',team:'Suecia',group:'GRUPO F'},
+  {id:'SWE19',label:'R. Quaison',team:'Suecia',group:'GRUPO F'},
+  {id:'SWE20',label:'L. Andersson',team:'Suecia',group:'GRUPO F'},
+  {id:'TUN1',label:'Escudo',team:'Túnez',group:'GRUPO F',foil:true},
+  {id:'TUN2',label:'A. Dahmen',team:'Túnez',group:'GRUPO F'},
+  {id:'TUN3',label:'D. Bronn',team:'Túnez',group:'GRUPO F'},
+  {id:'TUN4',label:'M. Talbi',team:'Túnez',group:'GRUPO F'},
+  {id:'TUN5',label:'Y. Meriah',team:'Túnez',group:'GRUPO F'},
+  {id:'TUN6',label:'A. Maaloul',team:'Túnez',group:'GRUPO F'},
+  {id:'TUN7',label:'O. Rekik',team:'Túnez',group:'GRUPO F'},
+  {id:'TUN8',label:'E. Khaoui',team:'Túnez',group:'GRUPO F'},
+  {id:'TUN9',label:'E. Ben Slimane',team:'Túnez',group:'GRUPO F'},
+  {id:'TUN10',label:'F. Ben Mustapha',team:'Túnez',group:'GRUPO F'},
+  {id:'TUN11',label:'Y. Msakni',team:'Túnez',group:'GRUPO F'},
+  {id:'TUN12',label:'A. Laidouni',team:'Túnez',group:'GRUPO F'},
+  {id:'TUN13',label:'Foto Grupal',team:'Túnez',group:'GRUPO F'},
+  {id:'TUN14',label:'H. Mejbri',team:'Túnez',group:'GRUPO F'},
+  {id:'TUN15',label:'Z. Machach',team:'Túnez',group:'GRUPO F'},
+  {id:'TUN16',label:'M. Ben Amor',team:'Túnez',group:'GRUPO F'},
+  {id:'TUN17',label:'N. Sliti',team:'Túnez',group:'GRUPO F'},
+  {id:'TUN18',label:'S. Sassi',team:'Túnez',group:'GRUPO F'},
+  {id:'TUN19',label:'A. Jaziri',team:'Túnez',group:'GRUPO F'},
+  {id:'TUN20',label:'S. Khazri',team:'Túnez',group:'GRUPO F'},
+  // GRUPO G
+  {id:'BEL1',label:'Escudo',team:'Bélgica',group:'GRUPO G',foil:true},
+  {id:'BEL2',label:'K. Casteels',team:'Bélgica',group:'GRUPO G'},
+  {id:'BEL3',label:'T. Alderweireld',team:'Bélgica',group:'GRUPO G'},
+  {id:'BEL4',label:'T. Castagne',team:'Bélgica',group:'GRUPO G'},
+  {id:'BEL5',label:'Z. Debast',team:'Bélgica',group:'GRUPO G'},
+  {id:'BEL6',label:'W. Faes',team:'Bélgica',group:'GRUPO G'},
+  {id:'BEL7',label:'A. Theate',team:'Bélgica',group:'GRUPO G'},
+  {id:'BEL8',label:'T. Meunier',team:'Bélgica',group:'GRUPO G'},
+  {id:'BEL9',label:'A. Tielemans',team:'Bélgica',group:'GRUPO G'},
+  {id:'BEL10',label:'K. De Bruyne',team:'Bélgica',group:'GRUPO G'},
+  {id:'BEL11',label:'R. Lukaku',team:'Bélgica',group:'GRUPO G'},
+  {id:'BEL12',label:'L. Trossard',team:'Bélgica',group:'GRUPO G'},
+  {id:'BEL13',label:'Foto Grupal',team:'Bélgica',group:'GRUPO G'},
+  {id:'BEL14',label:'J. Doku',team:'Bélgica',group:'GRUPO G'},
+  {id:'BEL15',label:'C. De Ketelaere',team:'Bélgica',group:'GRUPO G'},
+  {id:'BEL16',label:'L. Openda',team:'Bélgica',group:'GRUPO G'},
+  {id:'BEL17',label:'N. Raskin',team:'Bélgica',group:'GRUPO G'},
+  {id:'BEL18',label:'Y. Carrasco',team:'Bélgica',group:'GRUPO G'},
+  {id:'BEL19',label:'D. Origi',team:'Bélgica',group:'GRUPO G'},
+  {id:'BEL20',label:'J. Bakayoko',team:'Bélgica',group:'GRUPO G'},
+  {id:'EGY1',label:'Escudo',team:'Egipto',group:'GRUPO G',foil:true},
+  {id:'EGY2',label:'M. El-Shenawy',team:'Egipto',group:'GRUPO G'},
+  {id:'EGY3',label:'A. Hegazy',team:'Egipto',group:'GRUPO G'},
+  {id:'EGY4',label:'M. Hamdy',team:'Egipto',group:'GRUPO G'},
+  {id:'EGY5',label:'K. Gaber',team:'Egipto',group:'GRUPO G'},
+  {id:'EGY6',label:'A. Fatouh',team:'Egipto',group:'GRUPO G'},
+  {id:'EGY7',label:'M. Fathy',team:'Egipto',group:'GRUPO G'},
+  {id:'EGY8',label:'H. Abdelmaguid',team:'Egipto',group:'GRUPO G'},
+  {id:'EGY9',label:'T. Hamed',team:'Egipto',group:'GRUPO G'},
+  {id:'EGY10',label:'O. Gaber',team:'Egipto',group:'GRUPO G'},
+  {id:'EGY11',label:'M. Elneny',team:'Egipto',group:'GRUPO G'},
+  {id:'EGY12',label:'M. Salah',team:'Egipto',group:'GRUPO G'},
+  {id:'EGY13',label:'Foto Grupal',team:'Egipto',group:'GRUPO G'},
+  {id:'EGY14',label:'Z. Ahmed',team:'Egipto',group:'GRUPO G'},
+  {id:'EGY15',label:'E. Ashour',team:'Egipto',group:'GRUPO G'},
+  {id:'EGY16',label:'O. Marmoush',team:'Egipto',group:'GRUPO G'},
+  {id:'EGY17',label:'M. Abou Ali',team:'Egipto',group:'GRUPO G'},
+  {id:'EGY18',label:'T. Azar',team:'Egipto',group:'GRUPO G'},
+  {id:'EGY19',label:'A. El Said',team:'Egipto',group:'GRUPO G'},
+  {id:'EGY20',label:'M. El Solia',team:'Egipto',group:'GRUPO G'},
+  {id:'IRN1',label:'Escudo',team:'Irán',group:'GRUPO G',foil:true},
+  {id:'IRN2',label:'A. Beiranvand',team:'Irán',group:'GRUPO G'},
+  {id:'IRN3',label:'R. Rezaeian',team:'Irán',group:'GRUPO G'},
+  {id:'IRN4',label:'M. Pouraliganji',team:'Irán',group:'GRUPO G'},
+  {id:'IRN5',label:'M. Hosseini',team:'Irán',group:'GRUPO G'},
+  {id:'IRN6',label:'P. Hajsafi',team:'Irán',group:'GRUPO G'},
+  {id:'IRN7',label:'A. Jahanbakhsh',team:'Irán',group:'GRUPO G'},
+  {id:'IRN8',label:'A. Noorollahi',team:'Irán',group:'GRUPO G'},
+  {id:'IRN9',label:'S. Ezatolahi',team:'Irán',group:'GRUPO G'},
+  {id:'IRN10',label:'S. Moharrami',team:'Irán',group:'GRUPO G'},
+  {id:'IRN11',label:'V. Amiri',team:'Irán',group:'GRUPO G'},
+  {id:'IRN12',label:'M. Taremi',team:'Irán',group:'GRUPO G'},
+  {id:'IRN13',label:'Foto Grupal',team:'Irán',group:'GRUPO G'},
+  {id:'IRN14',label:'A. Gholizadeh',team:'Irán',group:'GRUPO G'},
+  {id:'IRN15',label:'K. Ansarifard',team:'Irán',group:'GRUPO G'},
+  {id:'IRN16',label:'A. Karimi',team:'Irán',group:'GRUPO G'},
+  {id:'IRN17',label:'M. Ghafouri',team:'Irán',group:'GRUPO G'},
+  {id:'IRN18',label:'I. Pouraliganji',team:'Irán',group:'GRUPO G'},
+  {id:'IRN19',label:'M. Shojaei',team:'Irán',group:'GRUPO G'},
+  {id:'IRN20',label:'S. Azmoun',team:'Irán',group:'GRUPO G'},
+  {id:'NZL1',label:'Escudo',team:'Nueva Zelanda',group:'GRUPO G',foil:true},
+  {id:'NZL2',label:'O. Sail',team:'Nueva Zelanda',group:'GRUPO G'},
+  {id:'NZL3',label:'M. Bindon',team:'Nueva Zelanda',group:'GRUPO G'},
+  {id:'NZL4',label:'T. Payne',team:'Nueva Zelanda',group:'GRUPO G'},
+  {id:'NZL5',label:'L. Jones',team:'Nueva Zelanda',group:'GRUPO G'},
+  {id:'NZL6',label:'N. McGarry',team:'Nueva Zelanda',group:'GRUPO G'},
+  {id:'NZL7',label:'W. Sporsheim',team:'Nueva Zelanda',group:'GRUPO G'},
+  {id:'NZL8',label:'A. de Vries',team:'Nueva Zelanda',group:'GRUPO G'},
+  {id:'NZL9',label:'E. Dekker',team:'Nueva Zelanda',group:'GRUPO G'},
+  {id:'NZL10',label:'C. Wood',team:'Nueva Zelanda',group:'GRUPO G'},
+  {id:'NZL11',label:'J. Campbell',team:'Nueva Zelanda',group:'GRUPO G'},
+  {id:'NZL12',label:'M. Garbett',team:'Nueva Zelanda',group:'GRUPO G'},
+  {id:'NZL13',label:'Foto Grupal',team:'Nueva Zelanda',group:'GRUPO G'},
+  {id:'NZL14',label:'J. Rogic',team:'Nueva Zelanda',group:'GRUPO G'},
+  {id:'NZL15',label:'K. Cacace',team:'Nueva Zelanda',group:'GRUPO G'},
+  {id:'NZL16',label:'T. Taylor',team:'Nueva Zelanda',group:'GRUPO G'},
+  {id:'NZL17',label:'M. Ridenton',team:'Nueva Zelanda',group:'GRUPO G'},
+  {id:'NZL18',label:'C. Papadopoulos',team:'Nueva Zelanda',group:'GRUPO G'},
+  {id:'NZL19',label:'B. Old',team:'Nueva Zelanda',group:'GRUPO G'},
+  {id:'NZL20',label:'H. Sarota',team:'Nueva Zelanda',group:'GRUPO G'},
+  // GRUPO H
+  {id:'ESP1',label:'Escudo',team:'España',group:'GRUPO H',foil:true},
+  {id:'ESP2',label:'U. Simón',team:'España',group:'GRUPO H'},
+  {id:'ESP3',label:'R. Le Normand',team:'España',group:'GRUPO H'},
+  {id:'ESP4',label:'A. Laporte',team:'España',group:'GRUPO H'},
+  {id:'ESP5',label:'D. Huijsen',team:'España',group:'GRUPO H'},
+  {id:'ESP6',label:'P. Porro',team:'España',group:'GRUPO H'},
+  {id:'ESP7',label:'D. Carvajal',team:'España',group:'GRUPO H'},
+  {id:'ESP8',label:'M. Cucurella',team:'España',group:'GRUPO H'},
+  {id:'ESP9',label:'M. Zubimendi',team:'España',group:'GRUPO H'},
+  {id:'ESP10',label:'Rodri',team:'España',group:'GRUPO H'},
+  {id:'ESP11',label:'Pedri',team:'España',group:'GRUPO H'},
+  {id:'ESP12',label:'F. Ruiz',team:'España',group:'GRUPO H'},
+  {id:'ESP13',label:'Foto Grupal',team:'España',group:'GRUPO H'},
+  {id:'ESP14',label:'M. Merino',team:'España',group:'GRUPO H'},
+  {id:'ESP15',label:'L. Yamal',team:'España',group:'GRUPO H'},
+  {id:'ESP16',label:'D. Olmo',team:'España',group:'GRUPO H'},
+  {id:'ESP17',label:'N. Williams',team:'España',group:'GRUPO H'},
+  {id:'ESP18',label:'F. Torres',team:'España',group:'GRUPO H'},
+  {id:'ESP19',label:'Á. Morata',team:'España',group:'GRUPO H'},
+  {id:'ESP20',label:'M. Oyarzabal',team:'España',group:'GRUPO H'},
+  {id:'CPV1',label:'Escudo',team:'Cabo Verde',group:'GRUPO H',foil:true},
+  {id:'CPV2',label:'Vozinha',team:'Cabo Verde',group:'GRUPO H'},
+  {id:'CPV3',label:'W. Pina',team:'Cabo Verde',group:'GRUPO H'},
+  {id:'CPV4',label:'R. Mendes',team:'Cabo Verde',group:'GRUPO H'},
+  {id:'CPV5',label:'L. Costa',team:'Cabo Verde',group:'GRUPO H'},
+  {id:'CPV6',label:'Y. Semedo',team:'Cabo Verde',group:'GRUPO H'},
+  {id:'CPV7',label:'P. Andrade',team:'Cabo Verde',group:'GRUPO H'},
+  {id:'CPV8',label:'W. Semedo',team:'Cabo Verde',group:'GRUPO H'},
+  {id:'CPV9',label:'K. Pina',team:'Cabo Verde',group:'GRUPO H'},
+  {id:'CPV10',label:'E. Tavares',team:'Cabo Verde',group:'GRUPO H'},
+  {id:'CPV11',label:'J. Lopes',team:'Cabo Verde',group:'GRUPO H'},
+  {id:'CPV12',label:'R. Rodrigues',team:'Cabo Verde',group:'GRUPO H'},
+  {id:'CPV13',label:'Foto Grupal',team:'Cabo Verde',group:'GRUPO H'},
+  {id:'CPV14',label:'J. Lopes',team:'Cabo Verde',group:'GRUPO H'},
+  {id:'CPV15',label:'G. Rodrigues',team:'Cabo Verde',group:'GRUPO H'},
+  {id:'CPV16',label:'J. Cabral',team:'Cabo Verde',group:'GRUPO H'},
+  {id:'CPV17',label:'D. Mendes',team:'Cabo Verde',group:'GRUPO H'},
+  {id:'CPV18',label:'H. Djaló',team:'Cabo Verde',group:'GRUPO H'},
+  {id:'CPV19',label:'K. Borges',team:'Cabo Verde',group:'GRUPO H'},
+  {id:'CPV20',label:'Bebé',team:'Cabo Verde',group:'GRUPO H'},
+  {id:'KSA1',label:'Escudo',team:'Arabia Saudí',group:'GRUPO H',foil:true},
+  {id:'KSA2',label:'M. Al-Owais',team:'Arabia Saudí',group:'GRUPO H'},
+  {id:'KSA3',label:'A. Al-Shahrani',team:'Arabia Saudí',group:'GRUPO H'},
+  {id:'KSA4',label:'A. Al-Tambakti',team:'Arabia Saudí',group:'GRUPO H'},
+  {id:'KSA5',label:'M. Al-Burayk',team:'Arabia Saudí',group:'GRUPO H'},
+  {id:'KSA6',label:'A. Al-Ghannam',team:'Arabia Saudí',group:'GRUPO H'},
+  {id:'KSA7',label:'A. Al-Abed',team:'Arabia Saudí',group:'GRUPO H'},
+  {id:'KSA8',label:'N. Al-Aqidi',team:'Arabia Saudí',group:'GRUPO H'},
+  {id:'KSA9',label:'M. Al-Juwayr',team:'Arabia Saudí',group:'GRUPO H'},
+  {id:'KSA10',label:'M. Kanno',team:'Arabia Saudí',group:'GRUPO H'},
+  {id:'KSA11',label:'A. Al-Dawsari',team:'Arabia Saudí',group:'GRUPO H'},
+  {id:'KSA12',label:'F. Al-Buraikan',team:'Arabia Saudí',group:'GRUPO H'},
+  {id:'KSA13',label:'Foto Grupal',team:'Arabia Saudí',group:'GRUPO H'},
+  {id:'KSA14',label:'H. Al-Malki',team:'Arabia Saudí',group:'GRUPO H'},
+  {id:'KSA15',label:'H. Al-Tambakti',team:'Arabia Saudí',group:'GRUPO H'},
+  {id:'KSA16',label:'A. Al-Hamdan',team:'Arabia Saudí',group:'GRUPO H'},
+  {id:'KSA17',label:'S. Al-Dawsari',team:'Arabia Saudí',group:'GRUPO H'},
+  {id:'KSA18',label:'Y. Al-Shahrani',team:'Arabia Saudí',group:'GRUPO H'},
+  {id:'KSA19',label:'M. Al-Burayk',team:'Arabia Saudí',group:'GRUPO H'},
+  {id:'KSA20',label:'R. Ghareeb',team:'Arabia Saudí',group:'GRUPO H'},
+  {id:'URU1',label:'Escudo',team:'Uruguay',group:'GRUPO H',foil:true},
+  {id:'URU2',label:'S. Rochet',team:'Uruguay',group:'GRUPO H'},
+  {id:'URU3',label:'J. Giménez',team:'Uruguay',group:'GRUPO H'},
+  {id:'URU4',label:'D. Godín',team:'Uruguay',group:'GRUPO H'},
+  {id:'URU5',label:'M. Olivera',team:'Uruguay',group:'GRUPO H'},
+  {id:'URU6',label:'J. Cáceres',team:'Uruguay',group:'GRUPO H'},
+  {id:'URU7',label:'N. Nández',team:'Uruguay',group:'GRUPO H'},
+  {id:'URU8',label:'R. Bentancur',team:'Uruguay',group:'GRUPO H'},
+  {id:'URU9',label:'F. Valverde',team:'Uruguay',group:'GRUPO H'},
+  {id:'URU10',label:'L. Torreira',team:'Uruguay',group:'GRUPO H'},
+  {id:'URU11',label:'M. Ugarte',team:'Uruguay',group:'GRUPO H'},
+  {id:'URU12',label:'D. Núñez',team:'Uruguay',group:'GRUPO H'},
+  {id:'URU13',label:'Foto Grupal',team:'Uruguay',group:'GRUPO H'},
+  {id:'URU14',label:'F. Torres',team:'Uruguay',group:'GRUPO H'},
+  {id:'URU15',label:'L. Suárez',team:'Uruguay',group:'GRUPO H'},
+  {id:'URU16',label:'L. Díaz',team:'Uruguay',group:'GRUPO H'},
+  {id:'URU17',label:'E. Cavani',team:'Uruguay',group:'GRUPO H'},
+  {id:'URU18',label:'M. Aguirre',team:'Uruguay',group:'GRUPO H'},
+  {id:'URU19',label:'R. Araújo',team:'Uruguay',group:'GRUPO H'},
+  {id:'URU20',label:'F. Pellistri',team:'Uruguay',group:'GRUPO H'},
+  // GRUPO I
+  {id:'FRA1',label:'Escudo',team:'Francia',group:'GRUPO I',foil:true},
+  {id:'FRA2',label:'M. Maignan',team:'Francia',group:'GRUPO I'},
+  {id:'FRA3',label:'B. Pavard',team:'Francia',group:'GRUPO I'},
+  {id:'FRA4',label:'R. Upamecano',team:'Francia',group:'GRUPO I'},
+  {id:'FRA5',label:'W. Saliba',team:'Francia',group:'GRUPO I'},
+  {id:'FRA6',label:'T. Hernández',team:'Francia',group:'GRUPO I'},
+  {id:'FRA7',label:'J. Kounde',team:'Francia',group:'GRUPO I'},
+  {id:'FRA8',label:'A. Tchouaméni',team:'Francia',group:'GRUPO I'},
+  {id:'FRA9',label:'A. Rabiot',team:'Francia',group:'GRUPO I'},
+  {id:'FRA10',label:'E. Camavinga',team:'Francia',group:'GRUPO I'},
+  {id:'FRA11',label:'K. Coman',team:'Francia',group:'GRUPO I'},
+  {id:'FRA12',label:'O. Dembélé',team:'Francia',group:'GRUPO I'},
+  {id:'FRA13',label:'Foto Grupal',team:'Francia',group:'GRUPO I'},
+  {id:'FRA14',label:'D. Doué',team:'Francia',group:'GRUPO I'},
+  {id:'FRA15',label:'A. Griezmann',team:'Francia',group:'GRUPO I'},
+  {id:'FRA16',label:'M. Thuram',team:'Francia',group:'GRUPO I'},
+  {id:'FRA17',label:'B. Diallo',team:'Francia',group:'GRUPO I'},
+  {id:'FRA18',label:'C. Nkunku',team:'Francia',group:'GRUPO I'},
+  {id:'FRA19',label:'O. Giroud',team:'Francia',group:'GRUPO I'},
+  {id:'FRA20',label:'K. Mbappé',team:'Francia',group:'GRUPO I'},
+  {id:'SEN1',label:'Escudo',team:'Senegal',group:'GRUPO I',foil:true},
+  {id:'SEN2',label:'E. Mendy',team:'Senegal',group:'GRUPO I'},
+  {id:'SEN3',label:'K. Koulibaly',team:'Senegal',group:'GRUPO I'},
+  {id:'SEN4',label:'A. Diallo',team:'Senegal',group:'GRUPO I'},
+  {id:'SEN5',label:'Y. Sabaly',team:'Senegal',group:'GRUPO I'},
+  {id:'SEN6',label:'M. Sarr',team:'Senegal',group:'GRUPO I'},
+  {id:'SEN7',label:'C. Kouyaté',team:'Senegal',group:'GRUPO I'},
+  {id:'SEN8',label:'N. Mendy',team:'Senegal',group:'GRUPO I'},
+  {id:'SEN9',label:'I. Gueye',team:'Senegal',group:'GRUPO I'},
+  {id:'SEN10',label:'P. Gueye',team:'Senegal',group:'GRUPO I'},
+  {id:'SEN11',label:'L. Diatta',team:'Senegal',group:'GRUPO I'},
+  {id:'SEN12',label:'S. Mané',team:'Senegal',group:'GRUPO I'},
+  {id:'SEN13',label:'Foto Grupal',team:'Senegal',group:'GRUPO I'},
+  {id:'SEN14',label:'A. Dieng',team:'Senegal',group:'GRUPO I'},
+  {id:'SEN15',label:'B. Diallo',team:'Senegal',group:'GRUPO I'},
+  {id:'SEN16',label:'I. Diedhiou',team:'Senegal',group:'GRUPO I'},
+  {id:'SEN17',label:'N. Jackson',team:'Senegal',group:'GRUPO I'},
+  {id:'SEN18',label:'B. Diop',team:'Senegal',group:'GRUPO I'},
+  {id:'SEN19',label:'S. Sakho',team:'Senegal',group:'GRUPO I'},
+  {id:'SEN20',label:'S. Ndiaye',team:'Senegal',group:'GRUPO I'},
+  {id:'IRQ1',label:'Escudo',team:'Irak',group:'GRUPO I',foil:true},
+  {id:'IRQ2',label:'M. Hamid',team:'Irak',group:'GRUPO I'},
+  {id:'IRQ3',label:'A. Hamad',team:'Irak',group:'GRUPO I'},
+  {id:'IRQ4',label:'A. Fajer',team:'Irak',group:'GRUPO I'},
+  {id:'IRQ5',label:'A. Hussein',team:'Irak',group:'GRUPO I'},
+  {id:'IRQ6',label:'S. Saad',team:'Irak',group:'GRUPO I'},
+  {id:'IRQ7',label:'A. Kadhim',team:'Irak',group:'GRUPO I'},
+  {id:'IRQ8',label:'A. Karrar',team:'Irak',group:'GRUPO I'},
+  {id:'IRQ9',label:'M. Ridha',team:'Irak',group:'GRUPO I'},
+  {id:'IRQ10',label:'A. Jasim',team:'Irak',group:'GRUPO I'},
+  {id:'IRQ11',label:'A. Saleh',team:'Irak',group:'GRUPO I'},
+  {id:'IRQ12',label:'A. Al-Hamdani',team:'Irak',group:'GRUPO I'},
+  {id:'IRQ13',label:'Foto Grupal',team:'Irak',group:'GRUPO I'},
+  {id:'IRQ14',label:'H. Abbas',team:'Irak',group:'GRUPO I'},
+  {id:'IRQ15',label:'A. Lateef',team:'Irak',group:'GRUPO I'},
+  {id:'IRQ16',label:'A. Twana',team:'Irak',group:'GRUPO I'},
+  {id:'IRQ17',label:'M. Dawood',team:'Irak',group:'GRUPO I'},
+  {id:'IRQ18',label:'A. Mohanad',team:'Irak',group:'GRUPO I'},
+  {id:'IRQ19',label:'A. Ali',team:'Irak',group:'GRUPO I'},
+  {id:'IRQ20',label:'A. Al-Hassani',team:'Irak',group:'GRUPO I'},
+  {id:'NOR1',label:'Escudo',team:'Noruega',group:'GRUPO I',foil:true},
+  {id:'NOR2',label:'O. Nyland',team:'Noruega',group:'GRUPO I'},
+  {id:'NOR3',label:'A. Strand Larsen',team:'Noruega',group:'GRUPO I'},
+  {id:'NOR4',label:'L. Svensson',team:'Noruega',group:'GRUPO I'},
+  {id:'NOR5',label:'S. Strandberg',team:'Noruega',group:'GRUPO I'},
+  {id:'NOR6',label:'J. Ryerson',team:'Noruega',group:'GRUPO I'},
+  {id:'NOR7',label:'A. Pedersen',team:'Noruega',group:'GRUPO I'},
+  {id:'NOR8',label:'O. Ajer',team:'Noruega',group:'GRUPO I'},
+  {id:'NOR9',label:'M. Ødegaard',team:'Noruega',group:'GRUPO I'},
+  {id:'NOR10',label:'S. Berge',team:'Noruega',group:'GRUPO I'},
+  {id:'NOR11',label:'F. Aursnes',team:'Noruega',group:'GRUPO I'},
+  {id:'NOR12',label:'J. Sørloth',team:'Noruega',group:'GRUPO I'},
+  {id:'NOR13',label:'Foto Grupal',team:'Noruega',group:'GRUPO I'},
+  {id:'NOR14',label:'P. Ceide',team:'Noruega',group:'GRUPO I'},
+  {id:'NOR15',label:'M. Solbakken',team:'Noruega',group:'GRUPO I'},
+  {id:'NOR16',label:'A. Thorstvedt',team:'Noruega',group:'GRUPO I'},
+  {id:'NOR17',label:'M. Henriksen',team:'Noruega',group:'GRUPO I'},
+  {id:'NOR18',label:'E. Haaland',team:'Noruega',group:'GRUPO I'},
+  {id:'NOR19',label:'T. Aasgaard',team:'Noruega',group:'GRUPO I'},
+  {id:'NOR20',label:'A. Nusa',team:'Noruega',group:'GRUPO I'},
+  // GRUPO J
+  {id:'ARG1',label:'Escudo',team:'Argentina',group:'GRUPO J',foil:true},
+  {id:'ARG2',label:'E. Martínez',team:'Argentina',group:'GRUPO J'},
+  {id:'ARG3',label:'N. Molina',team:'Argentina',group:'GRUPO J'},
+  {id:'ARG4',label:'C. Romero',team:'Argentina',group:'GRUPO J'},
+  {id:'ARG5',label:'N. Otamendi',team:'Argentina',group:'GRUPO J'},
+  {id:'ARG6',label:'N. Tagliafico',team:'Argentina',group:'GRUPO J'},
+  {id:'ARG7',label:'L. Balerdi',team:'Argentina',group:'GRUPO J'},
+  {id:'ARG8',label:'E. Fernández',team:'Argentina',group:'GRUPO J'},
+  {id:'ARG9',label:'A. Mac Allister',team:'Argentina',group:'GRUPO J'},
+  {id:'ARG10',label:'R. De Paul',team:'Argentina',group:'GRUPO J'},
+  {id:'ARG11',label:'E. Palacios',team:'Argentina',group:'GRUPO J'},
+  {id:'ARG12',label:'L. Paredes',team:'Argentina',group:'GRUPO J'},
+  {id:'ARG13',label:'Foto Grupal',team:'Argentina',group:'GRUPO J'},
+  {id:'ARG14',label:'N. Paz',team:'Argentina',group:'GRUPO J'},
+  {id:'ARG15',label:'F. Mastantuono',team:'Argentina',group:'GRUPO J'},
+  {id:'ARG16',label:'A. Di María',team:'Argentina',group:'GRUPO J'},
+  {id:'ARG17',label:'P. Dybala',team:'Argentina',group:'GRUPO J'},
+  {id:'ARG18',label:'L. Martínez',team:'Argentina',group:'GRUPO J'},
+  {id:'ARG19',label:'J. Álvarez',team:'Argentina',group:'GRUPO J'},
+  {id:'ARG20',label:'L. Messi',team:'Argentina',group:'GRUPO J'},
+  {id:'ALG1',label:'Escudo',team:'Argelia',group:'GRUPO J',foil:true},
+  {id:'ALG2',label:'A. Guendouz',team:'Argelia',group:'GRUPO J'},
+  {id:'ALG3',label:'R. Bensebaini',team:'Argelia',group:'GRUPO J'},
+  {id:'ALG4',label:'Y. Atal',team:'Argelia',group:'GRUPO J'},
+  {id:'ALG5',label:'R. Ait-Nouri',team:'Argelia',group:'GRUPO J'},
+  {id:'ALG6',label:'A. Mandi',team:'Argelia',group:'GRUPO J'},
+  {id:'ALG7',label:'M. Tahrat',team:'Argelia',group:'GRUPO J'},
+  {id:'ALG8',label:'D. Benlamri',team:'Argelia',group:'GRUPO J'},
+  {id:'ALG9',label:'A. Guedioura',team:'Argelia',group:'GRUPO J'},
+  {id:'ALG10',label:'H. Boudaoui',team:'Argelia',group:'GRUPO J'},
+  {id:'ALG11',label:'N. Benrahma',team:'Argelia',group:'GRUPO J'},
+  {id:'ALG12',label:'A. Mahrez',team:'Argelia',group:'GRUPO J'},
+  {id:'ALG13',label:'Foto Grupal',team:'Argelia',group:'GRUPO J'},
+  {id:'ALG14',label:'Y. Brahimi',team:'Argelia',group:'GRUPO J'},
+  {id:'ALG15',label:'I. Slimani',team:'Argelia',group:'GRUPO J'},
+  {id:'ALG16',label:'B. Bounedjah',team:'Argelia',group:'GRUPO J'},
+  {id:'ALG17',label:'A. Delort',team:'Argelia',group:'GRUPO J'},
+  {id:'ALG18',label:'M. Bennacer',team:'Argelia',group:'GRUPO J'},
+  {id:'ALG19',label:'A. Zerrouki',team:'Argelia',group:'GRUPO J'},
+  {id:'ALG20',label:'F. Maaloul',team:'Argelia',group:'GRUPO J'},
+  {id:'AUT1',label:'Escudo',team:'Austria',group:'GRUPO J',foil:true},
+  {id:'AUT2',label:'A. Schlager',team:'Austria',group:'GRUPO J'},
+  {id:'AUT3',label:'A. Lienhart',team:'Austria',group:'GRUPO J'},
+  {id:'AUT4',label:'K. Danso',team:'Austria',group:'GRUPO J'},
+  {id:'AUT5',label:'S. Posch',team:'Austria',group:'GRUPO J'},
+  {id:'AUT6',label:'P. Lienhart',team:'Austria',group:'GRUPO J'},
+  {id:'AUT7',label:'S. Bosch',team:'Austria',group:'GRUPO J'},
+  {id:'AUT8',label:'N. Seiwald',team:'Austria',group:'GRUPO J'},
+  {id:'AUT9',label:'K. Laimer',team:'Austria',group:'GRUPO J'},
+  {id:'AUT10',label:'M. Sabitzer',team:'Austria',group:'GRUPO J'},
+  {id:'AUT11',label:'F. Grillitsch',team:'Austria',group:'GRUPO J'},
+  {id:'AUT12',label:'D. Alaba',team:'Austria',group:'GRUPO J'},
+  {id:'AUT13',label:'Foto Grupal',team:'Austria',group:'GRUPO J'},
+  {id:'AUT14',label:'C. Baumgartner',team:'Austria',group:'GRUPO J'},
+  {id:'AUT15',label:'G. Gregoritsch',team:'Austria',group:'GRUPO J'},
+  {id:'AUT16',label:'P. Wimmer',team:'Austria',group:'GRUPO J'},
+  {id:'AUT17',label:'M. Gregoritsch',team:'Austria',group:'GRUPO J'},
+  {id:'AUT18',label:'M. Arnautović',team:'Austria',group:'GRUPO J'},
+  {id:'AUT19',label:'A. Adamu',team:'Austria',group:'GRUPO J'},
+  {id:'AUT20',label:'C. Gregoritsch',team:'Austria',group:'GRUPO J'},
+  {id:'JOR1',label:'Escudo',team:'Jordania',group:'GRUPO J',foil:true},
+  {id:'JOR2',label:'Y. Shaban',team:'Jordania',group:'GRUPO J'},
+  {id:'JOR3',label:'A. Al-Dardour',team:'Jordania',group:'GRUPO J'},
+  {id:'JOR4',label:'I. Haddad',team:'Jordania',group:'GRUPO J'},
+  {id:'JOR5',label:'Y. Al-Naimat',team:'Jordania',group:'GRUPO J'},
+  {id:'JOR6',label:'M. Abu Zaid',team:'Jordania',group:'GRUPO J'},
+  {id:'JOR7',label:'H. Bani Attiyeh',team:'Jordania',group:'GRUPO J'},
+  {id:'JOR8',label:'A. Al-Naimat',team:'Jordania',group:'GRUPO J'},
+  {id:'JOR9',label:'M. Abualnadi',team:'Jordania',group:'GRUPO J'},
+  {id:'JOR10',label:'I. Sabra',team:'Jordania',group:'GRUPO J'},
+  {id:'JOR11',label:'Y. Al-Bakkar',team:'Jordania',group:'GRUPO J'},
+  {id:'JOR12',label:'M. Musa',team:'Jordania',group:'GRUPO J'},
+  {id:'JOR13',label:'Foto Grupal',team:'Jordania',group:'GRUPO J'},
+  {id:'JOR14',label:'A. Al-Tamari',team:'Jordania',group:'GRUPO J'},
+  {id:'JOR15',label:'B. Al-Hajj',team:'Jordania',group:'GRUPO J'},
+  {id:'JOR16',label:'O. Al-Rawabdeh',team:'Jordania',group:'GRUPO J'},
+  {id:'JOR17',label:'A. Al-Aqrabawi',team:'Jordania',group:'GRUPO J'},
+  {id:'JOR18',label:'M. Al-Rashdan',team:'Jordania',group:'GRUPO J'},
+  {id:'JOR19',label:'A. Zreiqat',team:'Jordania',group:'GRUPO J'},
+  {id:'JOR20',label:'M. Qasem',team:'Jordania',group:'GRUPO J'},
+  // GRUPO K
+  {id:'POR1',label:'Escudo',team:'Portugal',group:'GRUPO K',foil:true},
+  {id:'POR2',label:'R. Patrício',team:'Portugal',group:'GRUPO K'},
+  {id:'POR3',label:'D. Dalot',team:'Portugal',group:'GRUPO K'},
+  {id:'POR4',label:'R. Dias',team:'Portugal',group:'GRUPO K'},
+  {id:'POR5',label:'P. Magalhães',team:'Portugal',group:'GRUPO K'},
+  {id:'POR6',label:'N. Semedo',team:'Portugal',group:'GRUPO K'},
+  {id:'POR7',label:'J. Cancelo',team:'Portugal',group:'GRUPO K'},
+  {id:'POR8',label:'D. Palhinha',team:'Portugal',group:'GRUPO K'},
+  {id:'POR9',label:'V. Fernandes',team:'Portugal',group:'GRUPO K'},
+  {id:'POR10',label:'B. Silva',team:'Portugal',group:'GRUPO K'},
+  {id:'POR11',label:'P. Neves',team:'Portugal',group:'GRUPO K'},
+  {id:'POR12',label:'R. Leão',team:'Portugal',group:'GRUPO K'},
+  {id:'POR13',label:'Foto Grupal',team:'Portugal',group:'GRUPO K'},
+  {id:'POR14',label:'F. Conceição',team:'Portugal',group:'GRUPO K'},
+  {id:'POR15',label:'G. Ramos',team:'Portugal',group:'GRUPO K'},
+  {id:'POR16',label:'Á. Silva',team:'Portugal',group:'GRUPO K'},
+  {id:'POR17',label:'P. Chidozie',team:'Portugal',group:'GRUPO K'},
+  {id:'POR18',label:'D. Jota',team:'Portugal',group:'GRUPO K'},
+  {id:'POR19',label:'J. Félix',team:'Portugal',group:'GRUPO K'},
+  {id:'POR20',label:'C. Ronaldo',team:'Portugal',group:'GRUPO K'},
+  {id:'COD1',label:'Escudo',team:'Congo DR',group:'GRUPO K',foil:true},
+  {id:'COD2',label:'O. Kasinga',team:'Congo DR',group:'GRUPO K'},
+  {id:'COD3',label:'D. Luyindama',team:'Congo DR',group:'GRUPO K'},
+  {id:'COD4',label:'A. Kakuta',team:'Congo DR',group:'GRUPO K'},
+  {id:'COD5',label:'C. Mbemba',team:'Congo DR',group:'GRUPO K'},
+  {id:'COD6',label:'B. Wola',team:'Congo DR',group:'GRUPO K'},
+  {id:'COD7',label:'Y. Lolo',team:'Congo DR',group:'GRUPO K'},
+  {id:'COD8',label:'A. Chadrac',team:'Congo DR',group:'GRUPO K'},
+  {id:'COD9',label:'Y. Bolasie',team:'Congo DR',group:'GRUPO K'},
+  {id:'COD10',label:'G. Wissa',team:'Congo DR',group:'GRUPO K'},
+  {id:'COD11',label:'J. Kayembe',team:'Congo DR',group:'GRUPO K'},
+  {id:'COD12',label:'H. Mputu',team:'Congo DR',group:'GRUPO K'},
+  {id:'COD13',label:'Foto Grupal',team:'Congo DR',group:'GRUPO K'},
+  {id:'COD14',label:'D. Bakambu',team:'Congo DR',group:'GRUPO K'},
+  {id:'COD15',label:'J. Masuaku',team:'Congo DR',group:'GRUPO K'},
+  {id:'COD16',label:'A. Bongonda',team:'Congo DR',group:'GRUPO K'},
+  {id:'COD17',label:'K. Lukeba',team:'Congo DR',group:'GRUPO K'},
+  {id:'COD18',label:'N. Mbuku',team:'Congo DR',group:'GRUPO K'},
+  {id:'COD19',label:'A. Musangu',team:'Congo DR',group:'GRUPO K'},
+  {id:'COD20',label:'H. Mukau',team:'Congo DR',group:'GRUPO K'},
+  {id:'UZB1',label:'Escudo',team:'Uzbekistán',group:'GRUPO K',foil:true},
+  {id:'UZB2',label:'U. Yusupov',team:'Uzbekistán',group:'GRUPO K'},
+  {id:'UZB3',label:'F. Savfiev',team:'Uzbekistán',group:'GRUPO K'},
+  {id:'UZB4',label:'S. Nasrullaev',team:'Uzbekistán',group:'GRUPO K'},
+  {id:'UZB5',label:'U. Eshmurodov',team:'Uzbekistán',group:'GRUPO K'},
+  {id:'UZB6',label:'H. Aliqulov',team:'Uzbekistán',group:'GRUPO K'},
+  {id:'UZB7',label:'R. Ashurmatov',team:'Uzbekistán',group:'GRUPO K'},
+  {id:'UZB8',label:'K. Alijonov',team:'Uzbekistán',group:'GRUPO K'},
+  {id:'UZB9',label:'A. Khusanov',team:'Uzbekistán',group:'GRUPO K'},
+  {id:'UZB10',label:'O. Hamrobekov',team:'Uzbekistán',group:'GRUPO K'},
+  {id:'UZB11',label:'O. Shukurov',team:'Uzbekistán',group:'GRUPO K'},
+  {id:'UZB12',label:'J. Iskanderov',team:'Uzbekistán',group:'GRUPO K'},
+  {id:'UZB13',label:'Foto Grupal',team:'Uzbekistán',group:'GRUPO K'},
+  {id:'UZB14',label:'A. Tursunov',team:'Uzbekistán',group:'GRUPO K'},
+  {id:'UZB15',label:'J. Jaloliddinov',team:'Uzbekistán',group:'GRUPO K'},
+  {id:'UZB16',label:'O. Zhamolov',team:'Uzbekistán',group:'GRUPO K'},
+  {id:'UZB17',label:'I. Kobilov',team:'Uzbekistán',group:'GRUPO K'},
+  {id:'UZB18',label:'A. Shomurodov',team:'Uzbekistán',group:'GRUPO K'},
+  {id:'UZB19',label:'E. Shomurodov',team:'Uzbekistán',group:'GRUPO K'},
+  {id:'UZB20',label:'O. Sobirov',team:'Uzbekistán',group:'GRUPO K'},
+  {id:'COL1',label:'Escudo',team:'Colombia',group:'GRUPO K',foil:true},
+  {id:'COL2',label:'D. Ospina',team:'Colombia',group:'GRUPO K'},
+  {id:'COL3',label:'S. Arias',team:'Colombia',group:'GRUPO K'},
+  {id:'COL4',label:'D. Sánchez',team:'Colombia',group:'GRUPO K'},
+  {id:'COL5',label:'Y. Mina',team:'Colombia',group:'GRUPO K'},
+  {id:'COL6',label:'W. Tesillo',team:'Colombia',group:'GRUPO K'},
+  {id:'COL7',label:'J. Mojica',team:'Colombia',group:'GRUPO K'},
+  {id:'COL8',label:'W. Barrios',team:'Colombia',group:'GRUPO K'},
+  {id:'COL9',label:'J. Lerma',team:'Colombia',group:'GRUPO K'},
+  {id:'COL10',label:'M. Caicedo',team:'Colombia',group:'GRUPO K'},
+  {id:'COL11',label:'J. Carrascal',team:'Colombia',group:'GRUPO K'},
+  {id:'COL12',label:'J. Cuadrado',team:'Colombia',group:'GRUPO K'},
+  {id:'COL13',label:'Foto Grupal',team:'Colombia',group:'GRUPO K'},
+  {id:'COL14',label:'J. Urrea',team:'Colombia',group:'GRUPO K'},
+  {id:'COL15',label:'L. Díaz',team:'Colombia',group:'GRUPO K'},
+  {id:'COL16',label:'R. Falcao',team:'Colombia',group:'GRUPO K'},
+  {id:'COL17',label:'J. Borré',team:'Colombia',group:'GRUPO K'},
+  {id:'COL18',label:'J. Cordova',team:'Colombia',group:'GRUPO K'},
+  {id:'COL19',label:'L. Sinisterra',team:'Colombia',group:'GRUPO K'},
+  {id:'COL20',label:'J. Durán',team:'Colombia',group:'GRUPO K'},
+  // GRUPO L
+  {id:'ENG1',label:'Escudo',team:'Inglaterra',group:'GRUPO L',foil:true},
+  {id:'ENG2',label:'J. Pickford',team:'Inglaterra',group:'GRUPO L'},
+  {id:'ENG3',label:'K. Walker',team:'Inglaterra',group:'GRUPO L'},
+  {id:'ENG4',label:'J. Stones',team:'Inglaterra',group:'GRUPO L'},
+  {id:'ENG5',label:'E. Konsa',team:'Inglaterra',group:'GRUPO L'},
+  {id:'ENG6',label:'T. Alexander-Arnold',team:'Inglaterra',group:'GRUPO L'},
+  {id:'ENG7',label:'M. Guehi',team:'Inglaterra',group:'GRUPO L'},
+  {id:'ENG8',label:'L. Shaw',team:'Inglaterra',group:'GRUPO L'},
+  {id:'ENG9',label:'D. Rice',team:'Inglaterra',group:'GRUPO L'},
+  {id:'ENG10',label:'J. Bellingham',team:'Inglaterra',group:'GRUPO L'},
+  {id:'ENG11',label:'T. Mainoo',team:'Inglaterra',group:'GRUPO L'},
+  {id:'ENG12',label:'C. Palmer',team:'Inglaterra',group:'GRUPO L'},
+  {id:'ENG13',label:'Foto Grupal',team:'Inglaterra',group:'GRUPO L'},
+  {id:'ENG14',label:'B. Saka',team:'Inglaterra',group:'GRUPO L'},
+  {id:'ENG15',label:'P. Foden',team:'Inglaterra',group:'GRUPO L'},
+  {id:'ENG16',label:'A. Gordon',team:'Inglaterra',group:'GRUPO L'},
+  {id:'ENG17',label:'M. Rashford',team:'Inglaterra',group:'GRUPO L'},
+  {id:'ENG18',label:'O. Watkins',team:'Inglaterra',group:'GRUPO L'},
+  {id:'ENG19',label:'H. Kane',team:'Inglaterra',group:'GRUPO L'},
+  {id:'ENG20',label:'E. Eze',team:'Inglaterra',group:'GRUPO L'},
+  {id:'CRO1',label:'Escudo',team:'Croacia',group:'GRUPO L',foil:true},
+  {id:'CRO2',label:'D. Livaković',team:'Croacia',group:'GRUPO L'},
+  {id:'CRO3',label:'J. Gvardiol',team:'Croacia',group:'GRUPO L'},
+  {id:'CRO4',label:'D. Lovren',team:'Croacia',group:'GRUPO L'},
+  {id:'CRO5',label:'J. Sutalo',team:'Croacia',group:'GRUPO L'},
+  {id:'CRO6',label:'J. Stanišić',team:'Croacia',group:'GRUPO L'},
+  {id:'CRO7',label:'J. Sutalo',team:'Croacia',group:'GRUPO L'},
+  {id:'CRO8',label:'K. Jakic',team:'Croacia',group:'GRUPO L'},
+  {id:'CRO9',label:'L. Modrić',team:'Croacia',group:'GRUPO L'},
+  {id:'CRO10',label:'M. Kovacic',team:'Croacia',group:'GRUPO L'},
+  {id:'CRO11',label:'M. Baturina',team:'Croacia',group:'GRUPO L'},
+  {id:'CRO12',label:'L. Majer',team:'Croacia',group:'GRUPO L'},
+  {id:'CRO13',label:'Foto Grupal',team:'Croacia',group:'GRUPO L'},
+  {id:'CRO14',label:'M. Pasalic',team:'Croacia',group:'GRUPO L'},
+  {id:'CRO15',label:'P. Sucic',team:'Croacia',group:'GRUPO L'},
+  {id:'CRO16',label:'I. Perišić',team:'Croacia',group:'GRUPO L'},
+  {id:'CRO17',label:'M. Pasalic',team:'Croacia',group:'GRUPO L'},
+  {id:'CRO18',label:'A. Budimir',team:'Croacia',group:'GRUPO L'},
+  {id:'CRO19',label:'A. Kramarić',team:'Croacia',group:'GRUPO L'},
+  {id:'CRO20',label:'F. Ivanovic',team:'Croacia',group:'GRUPO L'},
+  {id:'GHA1',label:'Escudo',team:'Ghana',group:'GRUPO L',foil:true},
+  {id:'GHA2',label:'L. Ati-Zigi',team:'Ghana',group:'GRUPO L'},
+  {id:'GHA3',label:'A. Ayew',team:'Ghana',group:'GRUPO L'},
+  {id:'GHA4',label:'J. Ayew',team:'Ghana',group:'GRUPO L'},
+  {id:'GHA5',label:'T. Partey',team:'Ghana',group:'GRUPO L'},
+  {id:'GHA6',label:'M. Salisu',team:'Ghana',group:'GRUPO L'},
+  {id:'GHA7',label:'G. Mensah',team:'Ghana',group:'GRUPO L'},
+  {id:'GHA8',label:'A. Baba',team:'Ghana',group:'GRUPO L'},
+  {id:'GHA9',label:'D. Amartey',team:'Ghana',group:'GRUPO L'},
+  {id:'GHA10',label:'E. Addo',team:'Ghana',group:'GRUPO L'},
+  {id:'GHA11',label:'K. Schär',team:'Ghana',group:'GRUPO L'},
+  {id:'GHA12',label:'M. Kudus',team:'Ghana',group:'GRUPO L'},
+  {id:'GHA13',label:'Foto Grupal',team:'Ghana',group:'GRUPO L'},
+  {id:'GHA14',label:'O. Paintsil',team:'Ghana',group:'GRUPO L'},
+  {id:'GHA15',label:'I. Williams',team:'Ghana',group:'GRUPO L'},
+  {id:'GHA16',label:'A. Williams',team:'Ghana',group:'GRUPO L'},
+  {id:'GHA17',label:'J. Issahaku',team:'Ghana',group:'GRUPO L'},
+  {id:'GHA18',label:'O. Bukari',team:'Ghana',group:'GRUPO L'},
+  {id:'GHA19',label:'A. Sulemana',team:'Ghana',group:'GRUPO L'},
+  {id:'GHA20',label:'J. Amoah',team:'Ghana',group:'GRUPO L'},
+  {id:'PAN1',label:'Escudo',team:'Panamá',group:'GRUPO L',foil:true},
+  {id:'PAN2',label:'L. Mejía',team:'Panamá',group:'GRUPO L'},
+  {id:'PAN3',label:'E. Davis',team:'Panamá',group:'GRUPO L'},
+  {id:'PAN4',label:'H. Murillo',team:'Panamá',group:'GRUPO L'},
+  {id:'PAN5',label:'J. Cordoba',team:'Panamá',group:'GRUPO L'},
+  {id:'PAN6',label:'R. Miller',team:'Panamá',group:'GRUPO L'},
+  {id:'PAN7',label:'E. Asprilla',team:'Panamá',group:'GRUPO L'},
+  {id:'PAN8',label:'J. Cordoba',team:'Panamá',group:'GRUPO L'},
+  {id:'PAN9',label:'A. Murillo',team:'Panamá',group:'GRUPO L'},
+  {id:'PAN10',label:'R. Parris',team:'Panamá',group:'GRUPO L'},
+  {id:'PAN11',label:'A. Quintero',team:'Panamá',group:'GRUPO L'},
+  {id:'PAN12',label:'A. Pérez',team:'Panamá',group:'GRUPO L'},
+  {id:'PAN13',label:'Foto Grupal',team:'Panamá',group:'GRUPO L'},
+  {id:'PAN14',label:'B. White',team:'Panamá',group:'GRUPO L'},
+  {id:'PAN15',label:'J. Fajardo',team:'Panamá',group:'GRUPO L'},
+  {id:'PAN16',label:'C. Davis',team:'Panamá',group:'GRUPO L'},
+  {id:'PAN17',label:'R. Murillo',team:'Panamá',group:'GRUPO L'},
+  {id:'PAN18',label:'I. Anderson',team:'Panamá',group:'GRUPO L'},
+  {id:'PAN19',label:'J. Murillo',team:'Panamá',group:'GRUPO L'},
+  {id:'PAN20',label:'R. Córdoba',team:'Panamá',group:'GRUPO L'},
+  // MUSEUM
+  {id:'MUS1',label:'Brasil 1958',team:'FIFA Museum',group:'FIFA MUSEUM',foil:false},
+  {id:'MUS2',label:'Brasil 1962',team:'FIFA Museum',group:'FIFA MUSEUM',foil:false},
+  {id:'MUS3',label:'Inglaterra 1966',team:'FIFA Museum',group:'FIFA MUSEUM',foil:false},
+  {id:'MUS4',label:'Brasil 1970',team:'FIFA Museum',group:'FIFA MUSEUM',foil:false},
+  {id:'MUS5',label:'Alemania 1974',team:'FIFA Museum',group:'FIFA MUSEUM',foil:false},
+  {id:'MUS6',label:'Argentina 1978',team:'FIFA Museum',group:'FIFA MUSEUM',foil:false},
+  {id:'MUS7',label:'Italia 1982',team:'FIFA Museum',group:'FIFA MUSEUM',foil:false},
+  {id:'MUS8',label:'Argentina 1986',team:'FIFA Museum',group:'FIFA MUSEUM',foil:false},
+  {id:'MUS9',label:'Alemania 1990',team:'FIFA Museum',group:'FIFA MUSEUM',foil:false},
+  {id:'MUS10',label:'Brasil 1994',team:'FIFA Museum',group:'FIFA MUSEUM',foil:false},
+  {id:'MUS11',label:'Francia 1998',team:'FIFA Museum',group:'FIFA MUSEUM',foil:false},
+  // COCA-COLA
+  {id:'CC1',label:'L. Yamal',team:'Coca-Cola',group:'COCA-COLA',foil:false},
+  {id:'CC2',label:'J. Kimmich',team:'Coca-Cola',group:'COCA-COLA',foil:false},
+  {id:'CC3',label:'H. Kane',team:'Coca-Cola',group:'COCA-COLA',foil:false},
+  {id:'CC4',label:'S. Giménez',team:'Coca-Cola',group:'COCA-COLA',foil:false},
+  {id:'CC5',label:'A. Robinson',team:'Coca-Cola',group:'COCA-COLA',foil:false},
+  {id:'CC6',label:'J. Lerma',team:'Coca-Cola',group:'COCA-COLA',foil:false},
+  {id:'CC7',label:'E. Álvarez',team:'Coca-Cola',group:'COCA-COLA',foil:false},
+  {id:'CC8',label:'V. van Dijk',team:'Coca-Cola',group:'COCA-COLA',foil:false},
+  {id:'CC9',label:'A. Davies',team:'Coca-Cola',group:'COCA-COLA',foil:false},
+  {id:'CC10',label:'W. McKennie',team:'Coca-Cola',group:'COCA-COLA',foil:false},
+  {id:'CC11',label:'L. Martínez',team:'Coca-Cola',group:'COCA-COLA',foil:false},
+  {id:'CC12',label:'G. Magalhães',team:'Coca-Cola',group:'COCA-COLA',foil:false},
+];
+
+const TOTAL = ALBUM.length;
+
+// ── App state ─────────────────────────────────────────────────────────────────
 let currentPlayer='benny',viewPlayer='benny',currentFilter='all',roomCode='',selectedPlayer=null;
 let remoteState={benny:{},leon:{}},tipTimer,dbRef;
 
@@ -282,47 +1260,51 @@ function enterApp(){
 }
 function exitApp(){if(dbRef)dbRef.off();document.getElementById('app-screen').style.display='none';document.getElementById('setup-screen').style.display='flex';}
 function switchView(p){viewPlayer=p;document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));document.getElementById('tab-'+p).classList.add('active');const own=p===currentPlayer;document.getElementById('ro-notice').style.display=own?'none':'block';document.getElementById('ro-name').textContent=p==='benny'?'Benny':'Leon';renderAll();}
-function getS(player,num){return remoteState[player][num]||'none';}
-function setS(num,val){remoteState[currentPlayer][num]=val==='none'?null:val;const u={};u[num]=val==='none'?null:val;dbRef.child(currentPlayer).update(u);}
-function updateStats(){let have=0,rep=0;for(const s of stickers){const v=getS(viewPlayer,s.num);if(v==='have')have++;else if(v==='repeat')rep++;}const miss=TOTAL-have-rep,pct=Math.round((have+rep)/TOTAL*100);document.getElementById('st-have').textContent=have;document.getElementById('st-miss').textContent=miss;document.getElementById('st-rep').textContent=rep;document.getElementById('st-pct').textContent=pct+'%';document.getElementById('prog-fill').style.width=pct+'%';document.getElementById('prog-lbl').textContent=(have+rep)+' / '+TOTAL;}
-function updateTabPcts(){for(const p of['benny','leon']){let d=0;for(const s of stickers)if(getS(p,s.num)!=='none')d++;document.getElementById('pct-'+p).textContent=Math.round(d/TOTAL*100)+'%';}}
+function getS(player,id){return remoteState[player][id]||'none';}
+function setS(id,val){remoteState[currentPlayer][id]=val==='none'?null:val;const u={};u[id]=val==='none'?null:val;dbRef.child(currentPlayer).update(u);}
+function updateStats(){let have=0,rep=0;for(const s of ALBUM){const v=getS(viewPlayer,s.id);if(v==='have')have++;else if(v==='repeat')rep++;}const miss=TOTAL-have-rep,pct=Math.round((have+rep)/TOTAL*100);document.getElementById('st-have').textContent=have;document.getElementById('st-miss').textContent=miss;document.getElementById('st-rep').textContent=rep;document.getElementById('st-pct').textContent=pct+'%';document.getElementById('prog-fill').style.width=pct+'%';document.getElementById('prog-lbl').textContent=(have+rep)+' / '+TOTAL;}
+function updateTabPcts(){for(const p of['benny','leon']){let d=0;for(const s of ALBUM)if(getS(p,s.id)!=='none')d++;document.getElementById('pct-'+p).textContent=Math.round(d/TOTAL*100)+'%';}}
 function setFilter(f){currentFilter=f;['all','miss','rep'].forEach(x=>document.getElementById('f-'+x).classList.toggle('active',x===f));renderAll();}
-function isVis(s){const q=document.getElementById('search').value.toLowerCase().trim();if(q&&!s.team.toLowerCase().includes(q)&&!String(s.num).includes(q)&&!s.group.toLowerCase().includes(q))return false;const v=getS(viewPlayer,s.num);if(currentFilter==='miss'&&v!=='none')return false;if(currentFilter==='rep'&&v!=='repeat')return false;return true;}
+function isVis(s){const q=document.getElementById('search').value.toLowerCase().trim();if(q&&!s.team.toLowerCase().includes(q)&&!s.id.toLowerCase().includes(q)&&!s.group.toLowerCase().includes(q)&&!s.label.toLowerCase().includes(q))return false;const v=getS(viewPlayer,s.id);if(currentFilter==='miss'&&v!=='none')return false;if(currentFilter==='rep'&&v!=='repeat')return false;return true;}
 
 function renderAll(){
   updateStats();
   const cont=document.getElementById('content');cont.innerHTML='';
   const otherP=viewPlayer==='benny'?'leon':'benny';
-  const otherName=otherP==='benny'?'Benny':'Leon';
   const otherColor=otherP==='benny'?'#60a5fa':'#fb923c';
-  if(viewPlayer===currentPlayer&&currentFilter==='all'){const reps=stickers.filter(s=>getS(currentPlayer,s.num)==='repeat');const useful=reps.filter(s=>getS(otherP,s.num)==='none');if(useful.length>0){const d=document.createElement('div');d.className='swap-banner';d.innerHTML='<div class="swap-title">🔄 Puedes darle a '+otherName+'</div><div class="swap-desc">'+useful.length+' repetida'+(useful.length>1?'s':'')+' que le faltan:</div><div class="swap-chips">'+useful.slice(0,40).map(s=>'<span class="chip">#'+s.num+'</span>').join('')+(useful.length>40?'<span class="chip">+'+(useful.length-40)+'</span>':'')+'</div>';cont.appendChild(d);}}
+  if(viewPlayer===currentPlayer&&currentFilter==='all'){
+    const reps=ALBUM.filter(s=>getS(currentPlayer,s.id)==='repeat');
+    const useful=reps.filter(s=>getS(otherP,s.id)==='none');
+    if(useful.length>0){const d=document.createElement('div');d.className='swap-banner';d.innerHTML='<div class="swap-title">🔄 Puedes darle a '+(otherP==='benny'?'Benny':'Leon')+'</div><div class="swap-desc">'+useful.length+' repetida'+(useful.length>1?'s':'')+' que le faltan:</div><div class="swap-chips">'+useful.slice(0,40).map(s=>'<span class="chip">'+s.id+'</span>').join('')+(useful.length>40?'<span class="chip">+'+(useful.length-40)+'</span>':'')+'</div>';cont.appendChild(d);}
+  }
   const grouped={};
-  for(const s of stickers){if(!isVis(s))continue;if(!grouped[s.group])grouped[s.group]={};if(!grouped[s.group][s.team])grouped[s.group][s.team]=[];grouped[s.group][s.team].push(s);}
-  const ORDER=['INTRODUCCIÓN','GRUPO A','GRUPO B','GRUPO C','GRUPO D','GRUPO E','GRUPO F','GRUPO G','GRUPO H','GRUPO I','GRUPO J','GRUPO K','GRUPO L','COCA-COLA','HISTORY'];
+  for(const s of ALBUM){if(!isVis(s))continue;if(!grouped[s.group])grouped[s.group]={};if(!grouped[s.group][s.team])grouped[s.group][s.team]=[];grouped[s.group][s.team].push(s);}
+  const ORDER=['INTRODUCCIÓN','GRUPO A','GRUPO B','GRUPO C','GRUPO D','GRUPO E','GRUPO F','GRUPO G','GRUPO H','GRUPO I','GRUPO J','GRUPO K','GRUPO L','COCA-COLA','FIFA MUSEUM'];
   let gi=0;
   for(const gname of ORDER){
     if(!grouped[gname])continue;
     const isSp=!gname.startsWith('GRUPO');const gcls=isSp?'gc-sp':'gc-'+(gi%12);if(!isSp)gi++;
-    const allG=stickers.filter(s=>s.group===gname);const haveG=allG.filter(s=>getS(viewPlayer,s.num)!=='none').length;
+    const allG=ALBUM.filter(s=>s.group===gname);const haveG=allG.filter(s=>getS(viewPlayer,s.id)!=='none').length;
     const sec=document.createElement('div');sec.className='group-section';
     sec.innerHTML='<div class="group-header '+gcls+'" onclick="this.closest(\'.group-section\').classList.toggle(\'collapsed\')"><span>'+gname+'</span><span class="g-right"><span class="g-count">'+haveG+'/'+allG.length+'</span><span class="chev">▼</span></span></div><div class="group-body"></div>';
     cont.appendChild(sec);
     const body=sec.querySelector('.group-body');
     for(const[team,tList]of Object.entries(grouped[gname])){
-      const haveT=tList.filter(s=>getS(viewPlayer,s.num)!=='none').length;
+      const haveT=tList.filter(s=>getS(viewPlayer,s.id)!=='none').length;
       const tDiv=document.createElement('div');tDiv.className='team-row';
       tDiv.innerHTML='<div class="team-name-row"><span>'+team+'</span><span class="tmini">'+haveT+'/'+tList.length+'</span></div><div class="sgrid"></div>';
       body.appendChild(tDiv);
       const grid=tDiv.querySelector('.sgrid');
       for(const s of tList){
-        const el=document.createElement('div');el.className='sticker';el.dataset.num=s.num;
-        const myV=getS(viewPlayer,s.num),otV=getS(otherP,s.num);
+        const el=document.createElement('div');el.className='sticker';el.dataset.id=s.id;
+        const myV=getS(viewPlayer,s.id),otV=getS(otherP,s.id);
         if(myV!=='none')el.classList.add(myV);
-        let odot='';
+        let odot='',foilBadge='';
         if(otV==='have')odot='<span class="odot" style="color:'+otherColor+'">●</span>';
         else if(otV==='repeat')odot='<span class="odot" style="color:'+otherColor+'">R</span>';
-        el.innerHTML='<div class="sn2">'+s.num+'</div><div class="slb2">'+s.label+'</div>'+odot;
-        if(viewPlayer===currentPlayer)el.addEventListener('click',()=>cycleSticker(s.num,el));
+        if(s.foil)foilBadge='<span class="foil-badge">★</span>';
+        el.innerHTML=foilBadge+'<div class="sn2">'+s.id+'</div><div class="slb2">'+s.label+'</div>'+odot;
+        if(viewPlayer===currentPlayer)el.addEventListener('click',()=>cycleSticker(s.id,el));
         else{el.style.cursor='default';el.style.opacity='.75';}
         grid.appendChild(el);
       }
@@ -331,106 +1313,42 @@ function renderAll(){
   if(!cont.children.length)cont.innerHTML='<div style="text-align:center;color:var(--muted);padding:40px;font-size:13px;">Sin postales en esta vista</div>';
 }
 
-function cycleSticker(num,el){if(viewPlayer!==currentPlayer)return;const cur=getS(currentPlayer,num);const next=cur==='none'?'have':cur==='have'?'repeat':'none';setS(num,next);el.classList.remove('have','repeat');if(next!=='none')el.classList.add(next);updateStats();updateTeamCount(el);showTip(next==='none'?'#'+num+' → Me falta':next==='have'?'#'+num+' → ¡Tengo!':'#'+num+' → Repetida');}
+function cycleSticker(id,el){if(viewPlayer!==currentPlayer)return;const cur=getS(currentPlayer,id);const next=cur==='none'?'have':cur==='have'?'repeat':'none';setS(id,next);el.classList.remove('have','repeat');if(next!=='none')el.classList.add(next);updateStats();updateTeamCount(el);showTip(next==='none'?id+' → Me falta':next==='have'?id+' → ¡Tengo!':id+' → Repetida');}
 function updateTeamCount(el){const grid=el.closest('.sgrid');if(!grid)return;const row=grid.closest('.team-row');if(!row)return;const all=grid.querySelectorAll('.sticker');const done=[...all].filter(c=>c.classList.contains('have')||c.classList.contains('repeat')).length;const mini=row.querySelector('.tmini');if(mini)mini.textContent=done+'/'+all.length;}
-function massAction(action){if(viewPlayer!==currentPlayer){showTip('Solo puedes editar tu álbum');return;}const els=document.querySelectorAll('.sticker');const upd={};let count=0;for(const el of els){const num=parseInt(el.dataset.num);if(getS(currentPlayer,num)==='none'){remoteState[currentPlayer][num]=action;upd[num]=action;el.classList.remove('have','repeat');el.classList.add(action);updateTeamCount(el);count++;}}if(!count){showTip('No hay postales sin marcar');return;}dbRef.child(currentPlayer).update(upd);updateStats();showTip(count+' postal'+(count>1?'es':'')+' → '+(action==='have'?'Tengo':'Repetida'));}
+function massAction(action){if(viewPlayer!==currentPlayer){showTip('Solo puedes editar tu álbum');return;}const els=document.querySelectorAll('.sticker');const upd={};let count=0;for(const el of els){const id=el.dataset.id;if(getS(currentPlayer,id)==='none'){remoteState[currentPlayer][id]=action;upd[id]=action;el.classList.remove('have','repeat');el.classList.add(action);updateTeamCount(el);count++;}}if(!count){showTip('No hay postales sin marcar');return;}dbRef.child(currentPlayer).update(upd);updateStats();showTip(count+' postal'+(count>1?'es':'')+' → '+(action==='have'?'Tengo':'Repetida'));}
 function showTip(msg){const el=document.getElementById('tip');el.textContent=msg;el.classList.add('show');clearTimeout(tipTimer);tipTimer=setTimeout(()=>el.classList.remove('show'),1800);}
 
-// ── PRINT ─────────────────────────────────────────────────────────────────────
 function doPrint(){
-  const playerName = viewPlayer==='benny'?'Benny Schifter':'Leon Schifter';
-  const missing = stickers.filter(s=>getS(viewPlayer,s.num)==='none');
-  const repeated = stickers.filter(s=>getS(viewPlayer,s.num)==='repeat');
-  const have = stickers.filter(s=>getS(viewPlayer,s.num)==='have').length;
-  const pct = Math.round((have+repeated.length)/TOTAL*100);
-
-  // Group missing by team
-  const missByTeam={};
-  for(const s of missing){if(!missByTeam[s.team])missByTeam[s.team]=[];missByTeam[s.team].push(s);}
-  const repByTeam={};
-  for(const s of repeated){if(!repByTeam[s.team])repByTeam[s.team]=[];repByTeam[s.team].push(s);}
-
+  const playerName=viewPlayer==='benny'?'Benny Schifter':'Leon Schifter';
+  const missing=ALBUM.filter(s=>getS(viewPlayer,s.id)==='none');
+  const repeated=ALBUM.filter(s=>getS(viewPlayer,s.id)==='repeat');
+  const have=ALBUM.filter(s=>getS(viewPlayer,s.id)==='have').length;
+  const pct=Math.round((have+repeated.length)/TOTAL*100);
+  const missByTeam={};for(const s of missing){if(!missByTeam[s.team])missByTeam[s.team]=[];missByTeam[s.team].push(s);}
+  const repByTeam={};for(const s of repeated){if(!repByTeam[s.team])repByTeam[s.team]=[];repByTeam[s.team].push(s);}
   let html='';
-  // Header
-  html+='<div class="pt-header"><div class="pt-title">⚽ Álbum <span>Mundial</span> 2026</div><div class="pt-meta">Panini · FIFA World Cup · '+new Date().toLocaleDateString('es')+'</div></div>';
-  html+='<div class="pt-player">👤 '+playerName+'</div>';
-
-  // Stats
-  html+='<div class="pt-stats">';
-  html+='<div class="pt-stat"><div class="pt-stat-n g">'+have+'</div><div class="pt-stat-l">Tengo</div></div>';
-  html+='<div class="pt-stat"><div class="pt-stat-n grey">'+missing.length+'</div><div class="pt-stat-l">Faltan</div></div>';
-  html+='<div class="pt-stat"><div class="pt-stat-n gold">'+repeated.length+'</div><div class="pt-stat-l">Repetidas</div></div>';
-  html+='<div class="pt-stat"><div class="pt-stat-n" style="color:#7c3aed">'+pct+'%</div><div class="pt-stat-l">Completado</div></div>';
+  html+='<div style="display:flex;align-items:baseline;justify-content:space-between;border-bottom:3px solid #00a651;padding-bottom:8px;margin-bottom:16px;"><div style="font-size:22px;font-weight:900;color:#0a0f0d;">⚽ Álbum <span style="color:#00a651;">Mundial</span> 2026</div><div style="font-size:10px;color:#999;text-align:right;">Panini · FIFA World Cup<br>'+new Date().toLocaleDateString('es')+'</div></div>';
+  html+='<div style="font-size:13px;font-weight:700;color:#1e3a8a;margin-bottom:14px;">👤 '+playerName+'</div>';
+  html+='<div style="display:flex;gap:0;margin-bottom:16px;border:1px solid #e0e0e0;border-radius:8px;overflow:hidden;">';
+  html+='<div style="flex:1;text-align:center;padding:10px 8px;border-right:1px solid #e0e0e0;"><div style="font-size:24px;font-weight:900;color:#00a651;">'+have+'</div><div style="font-size:9px;color:#aaa;text-transform:uppercase;">Tengo</div></div>';
+  html+='<div style="flex:1;text-align:center;padding:10px 8px;border-right:1px solid #e0e0e0;"><div style="font-size:24px;font-weight:900;color:#aaa;">'+missing.length+'</div><div style="font-size:9px;color:#aaa;text-transform:uppercase;">Faltan</div></div>';
+  html+='<div style="flex:1;text-align:center;padding:10px 8px;border-right:1px solid #e0e0e0;"><div style="font-size:24px;font-weight:900;color:#b8860b;">'+repeated.length+'</div><div style="font-size:9px;color:#aaa;text-transform:uppercase;">Repetidas</div></div>';
+  html+='<div style="flex:1;text-align:center;padding:10px 8px;"><div style="font-size:24px;font-weight:900;color:#7c3aed;">'+pct+'%</div><div style="font-size:9px;color:#aaa;text-transform:uppercase;">Listo</div></div>';
   html+='</div>';
-
-  // Missing section
-  html+='<div class="pt-section"><div class="pt-section-title miss">📋 Me faltan ('+missing.length+')</div>';
-  if(missing.length===0){html+='<div class="pt-empty">¡No falta ninguna! 🎉</div>';}
-  else{
-    for(const[team,list]of Object.entries(missByTeam)){
-      html+='<div class="pt-by-team"><div class="pt-team-name">'+team+'</div><div class="pt-nums">';
-      html+=list.map(s=>'<span class="pt-chip miss">#'+s.num+'</span>').join('');
-      html+='</div></div>';
-    }
-  }
+  html+='<div style="margin-bottom:18px;"><div style="font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;padding:5px 10px;margin-bottom:10px;border-radius:4px;background:#f0faf4;color:#166534;border-left:4px solid #00a651;">📋 Me faltan ('+missing.length+')</div>';
+  if(missing.length===0){html+='<div style="font-size:11px;color:#ccc;font-style:italic;padding:4px 2px;">¡No falta ninguna! 🎉</div>';}
+  else{for(const[team,list]of Object.entries(missByTeam)){html+='<div style="margin-bottom:8px;"><div style="font-size:10px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px;">'+team+'</div><div style="display:flex;flex-wrap:wrap;gap:4px;">';html+=list.map(s=>'<span style="border:1px solid #86efac;background:#f0fdf4;color:#166534;border-radius:4px;padding:2px 6px;font-size:10px;font-weight:700;font-family:monospace;">'+s.id+'</span>').join('');html+='</div></div>';}}
   html+='</div>';
-
-  // Repeated section
-  html+='<div class="pt-section"><div class="pt-section-title rep">🔄 Repetidas ('+repeated.length+')</div>';
-  if(repeated.length===0){html+='<div class="pt-empty">No hay repetidas aún.</div>';}
-  else{
-    for(const[team,list]of Object.entries(repByTeam)){
-      html+='<div class="pt-by-team"><div class="pt-team-name">'+team+'</div><div class="pt-nums">';
-      html+=list.map(s=>'<span class="pt-chip rep">#'+s.num+'</span>').join('');
-      html+='</div></div>';
-    }
-  }
+  html+='<div><div style="font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;padding:5px 10px;margin-bottom:10px;border-radius:4px;background:#fffde7;color:#7a5500;border-left:4px solid #f5c518;">🔄 Repetidas ('+repeated.length+')</div>';
+  if(repeated.length===0){html+='<div style="font-size:11px;color:#ccc;font-style:italic;padding:4px 2px;">No hay repetidas aún.</div>';}
+  else{for(const[team,list]of Object.entries(repByTeam)){html+='<div style="margin-bottom:8px;"><div style="font-size:10px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px;">'+team+'</div><div style="display:flex;flex-wrap:wrap;gap:4px;">';html+=list.map(s=>'<span style="border:1px solid #fde047;background:#fefce8;color:#854d0e;border-radius:4px;padding:2px 6px;font-size:10px;font-weight:700;font-family:monospace;">'+s.id+'</span>').join('');html+='</div></div>';}}
   html+='</div>';
-
-  html+='<div class="pt-footer">⚽ Álbum Panini FIFA World Cup 2026™️ · Generado el '+new Date().toLocaleString('es')+'</div>';
-
-  // Open clean white popup — avoids dark theme bleeding into print
-  const pw = window.open('','_blank','width=820,height=700');
-  const printStyles = `
-    *{box-sizing:border-box;margin:0;padding:0;}
-    body{background:#fff;color:#000;font-family:Arial,sans-serif;padding:24px;}
-    .pt-header{display:flex;align-items:baseline;justify-content:space-between;border-bottom:3px solid #00a651;padding-bottom:8px;margin-bottom:16px;}
-    .pt-title{font-size:22px;font-weight:900;color:#0a0f0d;}
-    .pt-title span{color:#00a651;}
-    .pt-meta{font-size:10px;color:#999;text-align:right;}
-    .pt-player{font-size:13px;font-weight:700;color:#1e3a8a;margin-bottom:14px;}
-    .pt-stats{display:flex;gap:0;margin-bottom:16px;border:1px solid #e0e0e0;border-radius:8px;overflow:hidden;}
-    .pt-stat{flex:1;text-align:center;padding:10px 8px;border-right:1px solid #e0e0e0;}
-    .pt-stat:last-child{border-right:none;}
-    .pt-stat-n{font-size:24px;font-weight:900;line-height:1;}
-    .pt-stat-n.g{color:#00a651;}
-    .pt-stat-n.grey{color:#aaa;}
-    .pt-stat-n.gold{color:#b8860b;}
-    .pt-stat-n.purple{color:#7c3aed;}
-    .pt-stat-l{font-size:9px;color:#aaa;text-transform:uppercase;letter-spacing:.4px;margin-top:2px;}
-    .pt-progress-bar{height:7px;background:#eee;border-radius:4px;overflow:hidden;margin-bottom:4px;}
-    .pt-progress-fill{height:100%;background:linear-gradient(90deg,#007a3d,#00a651,#f5c518);border-radius:4px;}
-    .pt-progress-label{font-size:9px;color:#aaa;text-align:right;margin-bottom:16px;}
-    .pt-section{margin-bottom:18px;}
-    .pt-section-title{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;padding:5px 10px;margin-bottom:10px;border-radius:4px;}
-    .pt-section-title.miss{background:#f0faf4;color:#166534;border-left:4px solid #00a651;}
-    .pt-section-title.rep{background:#fffde7;color:#7a5500;border-left:4px solid #f5c518;}
-    .pt-by-team{margin-bottom:10px;}
-    .pt-team-name{font-size:10px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px;}
-    .pt-nums{display:flex;flex-wrap:wrap;gap:4px;}
-    .pt-chip{border-radius:4px;padding:2px 7px;font-size:11px;font-weight:700;font-family:monospace;}
-    .pt-chip.miss{border:1px solid #86efac;background:#f0fdf4;color:#166534;}
-    .pt-chip.rep{border:1px solid #fde047;background:#fefce8;color:#854d0e;}
-    .pt-empty{font-size:11px;color:#ccc;font-style:italic;padding:4px 2px;}
-    .pt-footer{margin-top:24px;font-size:9px;color:#ccc;text-align:center;border-top:1px solid #eee;padding-top:8px;}
-    .print-btn{margin:20px auto;display:block;padding:10px 28px;background:#00a651;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;}
-    @media print{.print-btn{display:none;}}
-  `;
-  pw.document.write('<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Reporte Album Mundial 2026</title><style>' + printStyles + '</style></head><body>' + html + '<button class="print-btn" onclick="window.print()">🖨️ Imprimir / Guardar PDF</button></body></html>');
-
-pw.document.close();
+  html+='<div style="margin-top:24px;font-size:9px;color:#ccc;text-align:center;border-top:1px solid #eee;padding-top:8px;">⚽ Álbum Panini FIFA World Cup 2026™ · '+new Date().toLocaleString('es')+'</div>';
+  const pw=window.open('','_blank','width=820,height=700');
+  const ps=`*{box-sizing:border-box;margin:0;padding:0;}body{background:#fff;color:#000;font-family:Arial,sans-serif;padding:24px;}.print-btn{margin:20px auto;display:block;padding:10px 28px;background:#00a651;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;}@media print{.print-btn{display:none;}}`;
+  pw.document.write('<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Reporte Álbum Mundial 2026</title><style>'+ps+'</style></head><body>'+html+'<button class="print-btn" onclick="window.print()">🖨️ Imprimir / Guardar PDF</button></body></html>');
+  pw.document.close();
 }
 </script>
-
 </body>
 </html>
